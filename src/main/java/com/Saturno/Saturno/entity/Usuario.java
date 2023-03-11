@@ -22,10 +22,12 @@ public class Usuario implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String nCompleto;
-    private String usuario;
+    private String nombre;
+    private String apellido1;    
+    private String nickname;
     private String email;
     private String contrasena;
+    private String contrasenaConfirm;
     private int telefono;
    
 
@@ -37,22 +39,37 @@ public class Usuario implements Serializable {
         this.id = id;
     }
 
-    public String getnCompleto() {
-        return nCompleto;
+    public String getNombre() {
+        return nombre;
     }
 
-    public void setnCompleto(String nCompleto) {
-        this.nCompleto = nCompleto;
+    public void setNombre(String nombre) {
+        this.nombre = nombre;
     }
 
-    public String getUsuario() {
-        return usuario;
+    public String getApellido1() {
+        return apellido1;
     }
 
-    public void setUsuario(String usuario) {
-        this.usuario = usuario;
+    public void setApellido1(String apellido1) {
+        this.apellido1 = apellido1;
     }
 
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getContrasenaConfirm() {
+        return contrasenaConfirm;
+    }
+
+    public void setContrasenaConfirm(String contrasenaConfirm) {
+        this.contrasenaConfirm = contrasenaConfirm;
+    }
     public String getEmail() {
         return email;
     }

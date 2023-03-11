@@ -10,7 +10,6 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.io.Serializable;
-import java.sql.Date;
 
 /**
  *
@@ -23,7 +22,7 @@ public class Tarjeta implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nombreT;
-    private Date fechaEx;
+    private String fechaEx;
     private int codSe;
 
     public long getId() {
@@ -42,11 +41,11 @@ public class Tarjeta implements Serializable {
         this.nombreT = nombreT;
     }
 
-    public Date getFechaEx() {
+    public String getFechaEx() {
         return fechaEx;
     }
 
-    public void setFechaEx(Date fechaEx) {
+    public void setFechaEx(String fechaEx) {
         this.fechaEx = fechaEx;
     }
 

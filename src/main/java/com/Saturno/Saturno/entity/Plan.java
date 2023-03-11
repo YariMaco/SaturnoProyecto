@@ -16,14 +16,24 @@ import java.io.Serializable;
  * @author menoc
  */
 @Entity
-@Table(name="planes")
-public class Plan implements Serializable{
+@Table(name = "planes")
+public class Plan implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nombre;
-    private int duracion; 
-    private int precio; 
+    private String descripcion;
+    private int duracion;
+    private int precio;
+
+    public String getDescripcion() {
+        return descripcion;
+    }
+
+    public void setDescripcion(String descripcion) {
+        this.descripcion = descripcion;
+    }
 
     public long getId() {
         return id;
@@ -56,8 +66,5 @@ public class Plan implements Serializable{
     public void setPrecio(int precio) {
         this.precio = precio;
     }
-    
-    
-    
-    
+
 }

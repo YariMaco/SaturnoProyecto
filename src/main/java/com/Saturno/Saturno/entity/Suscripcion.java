@@ -4,8 +4,6 @@
  */
 package com.Saturno.Saturno.entity;
 
-import com.Saturno.Saturno.entity.Plan;
-import com.Saturno.Saturno.entity.Tarjeta;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
