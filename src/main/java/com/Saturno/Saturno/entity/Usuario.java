@@ -8,8 +8,6 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.OneToOne;
 import jakarta.persistence.Table;
 import java.io.Serializable;
 
@@ -29,9 +27,7 @@ public class Usuario implements Serializable {
     private String email;
     private String contrasena;
     private int telefono;
-    @OneToOne
-    @JoinColumn(name="tarjetas_id")
-    private Tarjeta tarjeta;
+   
 
     public long getId() {
         return id;
@@ -81,15 +77,6 @@ public class Usuario implements Serializable {
         this.telefono = telefono;
     }
 
-    public Tarjeta getTarjeta() {
-        return tarjeta;
-    }
-
-    public void setTarjeta(Tarjeta tarjeta) {
-        this.tarjeta = tarjeta;
-    }
-    
-    
     
     
     

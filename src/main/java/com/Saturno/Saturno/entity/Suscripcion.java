@@ -4,6 +4,8 @@
  */
 package com.Saturno.Saturno.entity;
 
+import com.Saturno.Saturno.entity.Plan;
+import com.Saturno.Saturno.entity.Tarjeta;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -36,6 +38,10 @@ public class Suscripcion implements Serializable{
     @ManyToOne
     @JoinColumn(name="planes_id")
     private Plan plan;
+    
+    @OneToOne
+    @JoinColumn(name="tarjetas_id")
+    private Tarjeta tarjeta;
 
     public long getId() {
         return id;
@@ -75,7 +81,17 @@ public class Suscripcion implements Serializable{
 
     public void setPlan(Plan plan) {
         this.plan = plan;
+    }    
+    
+    public Tarjeta getTarjeta() {
+        return tarjeta;
     }
+
+    public void setTarjeta(Tarjeta tarjeta) {
+        this.tarjeta = tarjeta;
+    }
+    
+    
     
     
     
