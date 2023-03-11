@@ -16,8 +16,8 @@ import java.sql.Date;
  *
  * @author menoc
  */
-@Entity
-@Table(name = "tarjetas")
+@Entity//Definir la clase como entidad
+@Table(name = "tarjetas")//Traer el nombre de la tabla de sql
 public class Tarjeta implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
