@@ -4,10 +4,14 @@
  */
 package com.Saturno.Saturno.entity;
 
+import java.io.Serializable;
+
 /**
  *
  * @author johan
  */
-public class Serie {
+@Entity
+@Table(name = "serie")
+public class Serie implements Serializable{
     
 }
