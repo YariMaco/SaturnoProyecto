@@ -4,10 +4,14 @@
  */
 package com.Saturno.Saturno.entity;
 
+import java.io.Serializable;
+
 /**
  *
  * @author johan
  */
-public class Pelicula {
+@Entity
+@Table(name = "pelicula")
+public class Pelicula implements Serializable{
     
 }
