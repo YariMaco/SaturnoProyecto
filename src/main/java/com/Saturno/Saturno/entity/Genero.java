@@ -12,7 +12,7 @@ import java.io.Serializable;
  *
  * @author johan
  */
-@Entity
+
 public class Genero implements Serializable{
     
 }
