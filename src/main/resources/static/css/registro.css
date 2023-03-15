@@ -8,16 +8,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 */
 @import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     font-family: 'Roboto Slab', serif;
     box-sizing: border-box;
 }
 
-body{
+body {
     /*Fondo*/
-    
+
     /*background-image: url("../images/City night.jpg");*/
     height: 100vh;
     overflow: hidden;
@@ -25,54 +25,54 @@ body{
     background-repeat: no-repeat;
 }
 
-.center{
-    position: absolute;
+.center {
+    position: fixed;
     top: 50%;
     left: 50%;
-    transform: translate(-100%, -50%);
+    transform: translate(-130%, -50%);
     width: auto;
     background-color: #643561;
-    border-left: 20px solid #541E50;
-    border-right: 20px solid #541E50;
+    border-left: 21px solid #541E50;
+    border-right: 21px solid #541E50;
     border-top: 40px solid #541E50;
-    border-bottom: 30px solid #541E50;
-    box-sizing: border-box;
+    border-bottom: 31px solid #541E50;
 }
 
 
-#icon{
+#icon {
     position: relative;
     height: 40px;
     width: 50px;
     border-radius: 10px;
 }
-.center h1{
+
+.center h1 {
     text-align: left;
     padding: 20px 0;
     color: white;
     background-color: #541E50;
 }
 
-.center form{
-    padding: 0 90px;
+.center form {
+    padding: 0 15px;
 }
 
-form .TextField{
+form .TextField {
     position: relative;
     /*border-bottom: 2px solid #adadad;*/
 }
 
-.TextField input{
-    width: 100%;
-    padding: 0 100px;
-    height: 7vmin;
-    font-size: 20px;
+.TextField input {
+    width: 85%;
+    padding: 0 10px;
+    height: 6vmin;
+    font-size: 19px;
     border-radius: 10px;
     outline: none;
     font-weight: 600;
 }
 
-.TextField label{
+.TextField label {
     position: relative;
     top: 50%;
     left: 0%;
@@ -81,7 +81,7 @@ form .TextField{
     font-size: 16px;
 }
 
-.pass a{
+.pass a {
     position: relative;
     text-align: center;
     display: inline-block;
@@ -92,13 +92,13 @@ form .TextField{
     left: 10%;
 }
 
-.subm{
+.subm {
     text-align: center;
     padding-top: 10px;
     padding-bottom: 10px;
 }
 
-#submits{
+#submit1{
     color: black;
     font-weight: bold;
     border-radius: 5px;
@@ -109,15 +109,16 @@ form .TextField{
     cursor: pointer;
 }
 
-.check{
+.check {
     color: white;
 }
 
-.center2{
-    color: black;
+.center2 {
+    
 }
-#fondo{
+
+#fondo {
     position: static;
-    height: -100%;
+    height: auto;
     width: 150%;
 }
