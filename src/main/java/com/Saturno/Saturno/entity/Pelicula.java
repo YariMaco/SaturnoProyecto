@@ -13,7 +13,6 @@ import java.io.Serializable;
  * @author johan
  */
 @Entity
-@Table(name = "pelicula")
 public class Pelicula implements Serializable{
     
 }
