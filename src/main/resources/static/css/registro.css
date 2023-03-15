@@ -1,0 +1,123 @@
+/*
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
+*/
+/* 
+    Created on : 14 mar 2023, 15:04:15
+    Author     : Neptune
+*/
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Slab:wght@100;300&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    font-family: 'Roboto Slab', serif;
+    box-sizing: border-box;
+}
+
+body{
+    /*Fondo*/
+    
+    /*background-image: url("../images/City night.jpg");*/
+    height: 100vh;
+    overflow: hidden;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.center{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-100%, -50%);
+    width: auto;
+    background-color: #643561;
+    border-left: 20px solid #541E50;
+    border-right: 20px solid #541E50;
+    border-top: 40px solid #541E50;
+    border-bottom: 30px solid #541E50;
+    box-sizing: border-box;
+}
+
+
+#icon{
+    position: relative;
+    height: 40px;
+    width: 50px;
+    border-radius: 10px;
+}
+.center h1{
+    text-align: left;
+    padding: 20px 0;
+    color: white;
+    background-color: #541E50;
+}
+
+.center form{
+    padding: 0 90px;
+}
+
+form .TextField{
+    position: relative;
+    /*border-bottom: 2px solid #adadad;*/
+}
+
+.TextField input{
+    width: 100%;
+    padding: 0 100px;
+    height: 7vmin;
+    font-size: 20px;
+    border-radius: 10px;
+    outline: none;
+    font-weight: 600;
+}
+
+.TextField label{
+    position: relative;
+    top: 50%;
+    left: 0%;
+    color: #ffffff;
+    transform: translateY(-50%);
+    font-size: 16px;
+}
+
+.pass a{
+    position: relative;
+    text-align: center;
+    display: inline-block;
+    text-decoration: none;
+    font-weight: 600;
+    color: black;
+    padding: 10px;
+    left: 10%;
+}
+
+.subm{
+    text-align: center;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#submits{
+    color: black;
+    font-weight: bold;
+    border-radius: 5px;
+    padding: 5px;
+    border: none;
+    font-size: 95%;
+    background-color: #B5C03D;
+    cursor: pointer;
+}
+
+.check{
+    color: white;
+}
+
+.center2{
+    color: black;
+}
+#fondo{
+    position: static;
+    height: -100%;
+    width: 150%;
+}
