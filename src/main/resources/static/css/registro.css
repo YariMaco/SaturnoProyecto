@@ -16,109 +16,131 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to ed
 }
 
 body {
-    /*Fondo*/
-
-    /*background-image: url("../images/City night.jpg");*/
     height: 100vh;
     overflow: hidden;
     background-size: cover;
     background-repeat: no-repeat;
 }
 
-.center {
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-130%, -50%);
-    width: auto;
-    background-color: #643561;
-    border-left: 21px solid #541E50;
-    border-right: 21px solid #541E50;
-    border-top: 40px solid #541E50;
-    border-bottom: 31px solid #541E50;
+.container {
+    /*Posición mitad y mitad*/
+    width: 50%;
+    float: left;
+    padding-left: 15px;
+    padding-right: 15px;
+    padding-top: 15px;
+    padding-bottom: 5%;
+    translate: 50%, -50%;
+    background-color: #632c5f;
 }
-
 
 #icon {
-    position: relative;
+    margin-top: 3%;
+    margin-left: 8%;
     height: 40px;
     width: 50px;
-    border-radius: 10px;
 }
 
-.center h1 {
-    text-align: left;
-    padding: 20px 0;
+.container h1 {
     color: white;
-    background-color: #541E50;
+    margin-left: -1%;
+    margin-bottom: 3%;
+    font-size: 250%;
 }
 
-.center form {
-    padding: 0 15px;
-}
-
-form .TextField {
+.container form {
+    /*Datos*/
+    color: white;
+    background-color: #703f6d;
     position: relative;
-    /*border-bottom: 2px solid #adadad;*/
+    margin-left: 17%;
+    margin-right: 25%;
+    padding: 3%;
 }
 
-.TextField input {
-    width: 85%;
-    padding: 0 10px;
-    height: 6vmin;
-    font-size: 19px;
-    border-radius: 10px;
-    outline: none;
-    font-weight: 600;
-}
-
-.TextField label {
-    position: relative;
+.container_form label {
     top: 50%;
-    left: 0%;
-    color: #ffffff;
+    left: 5%;
+    color: white;
     transform: translateY(-50%);
     font-size: 16px;
+    font-weight: 500;
 }
 
-.pass a {
-    position: relative;
-    text-align: center;
-    display: inline-block;
-    text-decoration: none;
-    font-weight: 600;
-    color: black;
-    padding: 10px;
-    left: 10%;
+.container_form input {
+    width: 100%;
+    padding: 0 5px;
+    height: 6vmin;
+    font-size: 16px;
+    background: white;
+    outline: none;
+    font-weight: 400;
+    border-radius: 10px;
 }
 
-.subm {
-    text-align: center;
-    padding-top: 10px;
-    padding-bottom: 10px;
+.container_form a {
+    color: white;
 }
 
-#submit1{
-    color: black;
-    font-weight: bold;
-    border-radius: 5px;
-    padding: 5px;
-    border: none;
-    font-size: 95%;
-    background-color: #B5C03D;
+.container_form #check {
+    width: 15%;
+    height: 15%;
+    margin-top: 2%;
+    margin-bottom: 2%;
+    font-weight: 400;
     cursor: pointer;
 }
 
-.check {
-    color: white;
+.submit {
+    background-color: #4CAF50; /* Color de fondo */
+    border: none; /* Quitamos borde */
+    color: white; /* Color de texto */
+    padding: 10px 20px; /* Tamaño de padding */
+    text-align: center; /* Centramos texto */
+    text-decoration: none; /* Quitamos decoración de texto */
+    display: inline-block; /* Mostramos como bloque */
+    font-size: 16px; /* Tamaño de fuente */
+    margin: 20px 0; /* Margen superior e inferior */
+    cursor: pointer; /* Cambiamos el cursor */
+    border-radius: 5px; /* Agregamos borde redondeado */
+    -webkit-transition-duration: 0.4s; /* Duración de la transición */
+    transition-duration: 0.4s; /* Duración de la transición */
+    -webkit-transition-timing-function: ease-in-out; /* Función de timing */
+    transition-timing-function: ease-in-out; /* Función de timing */
+}
+
+/*---------------------------------*/
+.submit:hover {
+    background-color:#B5C03D;
+    /* Cambiamos color de fondo al hacer hover */
+}
+
+.submit:active {
+    background-color: #2c9f9f;
+    /* Cambiamos color de fondo al hacer click */
+    transform: translateY(2px);
+    /* Movemos el botón hacia abajo */
+}
+
+/*---------------------------------*/
+
+.center2_1 {
+    position: absolute;
+    background-color: black;
+    opacity: 0.6;
+    height: 102%;
+    width: 50%;
+    left: 50%;
+    float: left;
 }
 
 .center2 {
-    
+    width: 50%;
+    float: left;
 }
 
-#fondo {
-    position: static;
-    height: auto;
-    width: 150%;
+.center2 #fondo {
+    width: 100%;
+    height: 655px;
+    background-size: cover;
 }

@@ -13,50 +13,47 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 </head>
 
 <body>
+    <div class="container">
+        <h1>
+            <img id="icon" src="images/SATURNO Logo - Original - 5000x5000 (3)_1.png" alt="icono"> Registro
+        </h1>
+        <div class="container_form">
+            <form>
+                <label for="nickname">Nickname:</label>
+                <input type="text" id="nickname" name="nickname" required>
 
-    <div class="center">
-        <h1><img id="icon" src="images/SATURNO Logo - Original - 5000x5000 (3)_1.png" alt="icono"> Registro</h1>
-        <form>
-            <div class="TextField">
-                <label>Apodo/Nickname:</label>
-                <input type="text" required>
-            </div>
-            <div class="TextField">
-                <label>Nombre:</label>
-                <input type="text" required>
-            </div>
-            <div class="TextField">
-                <label>Primer Apellido:</label>
-                <input type="text" required>
-            </div>
-            <div class="TextField">
-                <label>Telefono:</label>
-                <input type="text" required>
-            </div>
-            <div class="TextField">
-                <label>Contraseña:</label>
-                <input type="text" required>
-            </div>
-            <div class="TextField">
-                <label>Confirme Contraseña:</label>
-                <input type="text" required>
-            </div>
-            <div class="subm">
-                <input id="submit1" type="submit" value="Crear Cuenta" name="Submit" />
-            </div>
-            
-            <div class="check">
-                <input type="checkbox" id="terminos" name="terminos" value="Terms">
-                <label for="terminos">Acepto los <a href="" style="color:white">terminos y condiciones</a></label><br>
-                <input type="checkbox" id="notificaciones" name="notificaciones" value="Noti">
-                <label for="notificaciones">Recibir notificaciones a mi correo</label><br>
-            </div>
-        </form>
+                <label for="nombre">Nombre:</label>
+                <input type="text" id="nombre" name="nombre" required>
+
+                <label for="apellido1">Primer Apellido:</label>
+                <input type="text" id="apellido1" name="apellido1" required>
+
+                <label for="telefono">Teléfono:</label>
+                <input type="tel" id="telefono" name="telefono" pattern="[0-9]{9}" required>
+
+                <label for="password">Contraseña:</label>
+                <input type="password" id="password" name="password" required>
+
+                <label for="confirmpassword">Confirme Contraseña:</label>
+                <input type="password" id="confirmpassword" name="confirmpassword" required>
+
+                <input type="checkbox" id="check" name="terms">
+                <label for="terms">Acepto los <a href="">términos y condiciones</a></label>
+
+                <input type="checkbox" id="check" name="notif">
+                <label for="notif">Recibir notificaciones a mi correo</label>
+
+                <input type="submit" class="submit" id="submit_form" value="Crear Cuenta">
+            </form>
+        </div>
     </div>
 
+    <div class="center2_1"></div>
     <div class="center2">
         <img id="fondo" src="images/imgfondPelis.jpg" alt="imgfonfPelis">
     </div>
+
+
 </body>
 
 </html>
