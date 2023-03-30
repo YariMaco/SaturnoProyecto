@@ -4,6 +4,8 @@
  */
 package com.Saturno.Saturno.entity;
 
+import com.Saturno.Saturno.entity.Plan;
+import com.Saturno.Saturno.entity.Tarjeta;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -25,8 +27,8 @@ public class Suscripcion implements Serializable{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private Date fechaInicio;
-    private Date fechaFinal;
+    private Date fechainicio;
+    private Date fechafinal;
     
     
     @OneToOne
@@ -49,20 +51,20 @@ public class Suscripcion implements Serializable{
         this.id = id;
     }
 
-    public Date getFechaInicio() {
-        return fechaInicio;
+    public Date getFechainicio() {
+        return fechainicio;
     }
 
-    public void setFechaInicio(Date fechaInicio) {
-        this.fechaInicio = fechaInicio;
+    public void setFechainicio(Date fechainicio) {
+        this.fechainicio = fechainicio;
     }
 
-    public Date getFechaFinal() {
-        return fechaFinal;
+    public Date getFechafinal() {
+        return fechafinal;
     }
 
-    public void setFechaFinal(Date fechaFinal) {
-        this.fechaFinal = fechaFinal;
+    public void setFechafinal(Date fechafinal) {
+        this.fechafinal = fechafinal;
     }
 
     public Usuario getUsuario() {
@@ -87,9 +89,7 @@ public class Suscripcion implements Serializable{
 
     public void setTarjeta(Tarjeta tarjeta) {
         this.tarjeta = tarjeta;
-    }
-    
-    
+    }  
     
     
     

@@ -10,20 +10,22 @@ import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import java.io.Serializable;
+import java.sql.Date;
 
 /**
  *
  * @author menoc
  */
-@Entity//Definir la clase como entidad
-@Table(name = "tarjetas")//Traer el nombre de la tabla de sql
+@Entity
+@Table(name = "tarjetas")
 public class Tarjeta implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
-    private String nombreT;
-    private String fechaEx;
-    private int codSe;
+    private String nombret;
+    private String fechaex;
+    private int codse;
+    private int numerot;
 
     public long getId() {
         return id;
@@ -33,27 +35,38 @@ public class Tarjeta implements Serializable {
         this.id = id;
     }
 
-    public String getNombreT() {
-        return nombreT;
+    public String getNombret() {
+        return nombret;
     }
 
-    public void setNombreT(String nombreT) {
-        this.nombreT = nombreT;
+    public void setNombret(String nombret) {
+        this.nombret = nombret;
     }
 
-    public String getFechaEx() {
-        return fechaEx;
+    public String getFechaex() {
+        return fechaex;
     }
 
-    public void setFechaEx(String fechaEx) {
-        this.fechaEx = fechaEx;
+    public void setFechaex(String fechaex) {
+        this.fechaex = fechaex;
     }
 
-    public int getCodSe() {
-        return codSe;
+    public int getCodse() {
+        return codse;
     }
 
-    public void setCodSe(int codSe) {
-        this.codSe = codSe;
-    }        
+    public void setCodse(int codse) {
+        this.codse = codse;
+    }
+  
+
+    public int getNumerot() {
+        return numerot;
+    }
+
+    public void setNumerot(int numerot) {
+        this.numerot = numerot;
+    }
+    
 }
+

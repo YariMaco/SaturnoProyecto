@@ -12,6 +12,9 @@ import java.util.List;
  * @author menoc
  */
 public interface IPlanService {
+
     public List<Plan> listPlan();
-    
+
+    public Plan getPlanById(long id);
+
 }

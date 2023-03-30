@@ -16,12 +16,18 @@ import org.springframework.stereotype.Service;
  */
 @Service
 public class PlanService implements IPlanService {
+
     @Autowired
     private PlanRepository planRepository;
 
     @Override
     public List<Plan> listPlan() {
-        return(List<Plan>)planRepository.findAll();
+        return (List<Plan>) planRepository.findAll();
     }
-    
+
+    @Override
+    public Plan getPlanById(long id) {
+        return planRepository.findById(id).orElse(null);
+    }
+
 }
