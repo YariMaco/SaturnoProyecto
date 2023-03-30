@@ -1,0 +1,49 @@
+body{
+    margin: 0px;
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+
+}
+.objeto{
+    position: relative;
+    width: 70%;
+    height: 70%;
+    display: flex;
+    background: #541E50;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+ 
+}
+.bottom{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
+}
+.mitad1{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.mitad2{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.container{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56),rgba(0, 0, 0, 0.56)) ,url(../images/posters.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+

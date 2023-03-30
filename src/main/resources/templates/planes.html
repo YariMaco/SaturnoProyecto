@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Planes</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/planes.css"/>
+    </head>
+    <body>       
+        <div class="container">  
+            <div class="objeto"> 
+                <p class="paso">Paso 2/3</p>
+                <h1>Elegí el mejor plan para vos</h1>                
+                <div class="card-deck">
+                    <div th:each="object : ${planes}" class="card">   
+                        <div class="card-body">
+                            <h5 class="card-title" th:text="${object.nombre}"></h5>
+                            <div class="contenido">
+                            <p class="card-text" th:text="${object.descripcion}"></p>
+                            <p class="card-text">₡<span th:text="${object.precio}"></span></p>
+                             </div>
+                            <a th:href="@{/pagoPlan/{idSuscripcion}/{idPlan}(idSuscripcion=${suscripcion.id}, idPlan=${object.id})}" class="btn">Suscribirse a este</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+             <a class="signin" href="#">Sign in</a>           
+
+        </div>
+
+    </body>
+</html>

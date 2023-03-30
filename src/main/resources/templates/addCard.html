@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Tarjeta</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="/css/tarjeta.css"/>
+        
+        <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
+
+    </head>
+    <body>
+        <div class="container">              
+            <div class="objeto"> 
+                <div class="top">                 
+                    <h1>Agregá una tarjeta</h1>
+                    <p><i class="material-icons"style="font-size:35px;color:#B5C03D;">https</i>Pago seguro y encriptado</p>
+                </div>
+                <div class="bottom"> 
+                    <div class="mitad1"> 
+                        <form th:action="@{/saveT/{idSuscripcion}/{idPlan}(idSuscripcion=${idSuscripcion}, idPlan=${idPlan})}"
+                              method="post"
+                              th:object="${tarjeta}">
+                            <div class ="txt_field">
+                                <input type="hidden" name="suscripcionId" value="${suscripcion.id}" />
+                            </div>
+                            <div class ="txt_field">
+                                <input type="hidden" th:field="*{id}">                  
+                                <input type="text" placeholder="Nombre en la tarjeta" id="nombre" th:field="*{nombret}" />
+                            </div>
+                            <div class ="txt_field">
+                                <label for="numerot">Card Number:</label>
+                                <input type="number" id="Numero" th:field="*{numerot}" />         
+                            </div>
+                            <div class ="txt_field">
+                                <label for="nombreT">Expiration Date:</label>
+                                <input type="text" id="fechaex" th:field="*{fechaex}" />
+                            </div>
+                            <div class ="txt_field">
+                                <label for="codSe">CVV:</label>
+                                <input type="number" id="cvv" th:field="*{codse}" />
+                            </div>
+
+                            <button type="submit">Empezar Membresía</button>
+                        </form>
+                    </div> 
+                    <div class="mitad2">                     
+                        <p>Seleccionaste el plan de <span th:text="${plan.nombre}"></span> con valor de<span th:text="${plan.precio}"></span>, este monto será automáticamente 
+                            descontado de la cuenta asociada a esta tarjeta 
+                            al empezar la membresía. Cuando expire el plazo
+                            del plan, nuestro servicio volverá a renovarlo.
+                            Puedes cancelar tu plan en cualquier momento 
+                            entrando a las configuraciones de tu perfil. 
+                            Revisa los términos y condiciones para más
+                            información</p>
+                    </div>
+                </div>
+            </div> 
+        </div>
+    </body>
+</html>

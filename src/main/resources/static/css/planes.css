@@ -1,0 +1,93 @@
+body{
+    margin: 0px;
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+
+}
+.card-deck{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+.objeto{
+    position: relative;
+    width: 70%;
+    height: 70%;
+    display: flex;
+    background: #541E50;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+
+}
+.card{
+    flex: 1;
+    margin: 10px;
+    width: 14vw;
+    background-color:rgba(255, 255, 255, .13);
+    border-radius: 5px;
+    padding: 0px 50px;
+    justify-content: center;
+    align-items: center;
+}
+.card-body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+
+}
+.contenido{
+    flex: 1;
+    margin: 10px;
+    width: 13vw;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
+
+}
+.container{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56),rgba(0, 0, 0, 0.56)) ,url(../images/posters.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.card-text{
+    color: black;
+}
+.card a{
+    background-color: #B5C03D;
+    color: #fff;
+    padding: 15px 28px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 17px;
+}
+.paso{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1vw;
+    margin: 30px 40px;
+}
+.card-title{
+    font-size: 2vw;
+}
+.signin{
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background-color: #B5C03D;
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}

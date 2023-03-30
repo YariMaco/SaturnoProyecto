@@ -1,9 +1,74 @@
-/*
-Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
-Click nbfs://nbhost/SystemFileSystem/Templates/Other/CascadeStyleSheet.css to edit this template
-*/
-/* 
-    Created on : 14 mar 2023, 11:04:10
-    Author     : Neptune
-*/
+body{
+    margin: 0px;
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
 
+}
+.container{
+    display: flex;
+    height: 100vh;
+}
+.mitad1{
+    height: 100%;
+    width: 50%;
+    background: #541E50;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10%;
+}
+.arriba{
+    font-size:2.5vw;
+}
+.abajo{
+    font-size: 1.5vw;
+
+}
+.mitad2{
+    width: 50%;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56),rgba(0, 0, 0, 0.56)) ,url(../images/posters.jpg);
+    background-position: center;
+    background-size: cover;
+}
+.mitad1 form{
+    display: flex;
+}
+#email {
+    width: 60%;
+    height: 40px;
+    padding: 10px;
+    font-size: 20px;
+    border: none;
+    border-radius: 5px 0px 0px 5px;
+}
+
+#submit1{
+    color: #fff;
+    background-color: #B5C03D;
+    border: none;
+    border-radius: 0px 5px 5px 0px;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+
+
+}
+.logo{
+    width: 60%;
+
+}
+.signin{
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background-color: #B5C03D;
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
