@@ -3,14 +3,6 @@ body{
     font-family: 'Open Sans', sans-serif;
     color: #fff;
 }
-#Logo{
-    position: absolute;
-    width: 15%;
-    height: 10%;
-    top: 3vh;
-    left: 12vh;
-}
-
 .container{   
     background-image: linear-gradient(rgba(0, 0, 0, 0.56),rgba(0, 0, 0, 0.56)) ,url(../images/posters.jpg);
     background-position: center;
@@ -32,20 +24,14 @@ body{
     flex-direction: column;
     gap: 20px;
 }
-.signin{
-    position: absolute;
-    top: 40px;
-    right: 40px;
-    background-color: #B5C03D;
-    color: #fff;
-    padding: 12px 28px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 18px;
+#Logo{
+    width: 60%;
+    height: 80%;
+}
+.objeto .text{
+    font-size: 5vh;
 }
 .objeto a{
-
     background-color: #B5C03D;
     border-radius:5px;
     text-decoration: none;
@@ -55,29 +41,11 @@ body{
     display: flex;
     align-items: center;
     color: #fff;
-    font-weight: bold;
-
-}
-.objeto h1{
-    text-align: center;
-    font-size:2vw;
-
+    font-weight: 200;
 }
 
-.arriba{
-    text-align: center;
-    font-size:2vw;
-
-}
-.paso{
-   position: absolute;
-    top: 0;
-    right: 0;
-    font-size: 1vw;
-    margin: 30px 40px;
-}
-.abajo{
-    text-align: center;
-    font-size: 1.5vw;
-
+#Continuar{
+    position: absolute;
+    right: -27%;
+    bottom: 0vh;
 }
