@@ -130,4 +130,10 @@ public class SuscripcionController {
     public String showHome() {
         return "navbar";
     }
+    
+    @GetMapping("/terminosYcondiciones")
+    public String mostrarTerminos() {
+        return "terminosYcondiciones";
+    }
+    
 }

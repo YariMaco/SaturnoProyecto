@@ -1,0 +1,84 @@
+body{
+    margin: 0px;
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+
+}
+.container{   
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56),rgba(0, 0, 0, 0.56)) ,url(../images/posters.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh;
+}
+.objeto{
+    position: relative;
+    width: 60%;
+    height: 70%;
+    display: flex;
+    background: #541E50;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    gap: 20px;
+
+}
+.signin{
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background-color: #B5C03D;
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+.objeto a{
+
+    background-color: #B5C03D;
+    border-radius:5px;
+    text-decoration: none;
+    padding: 14px 20px;
+    font-size: 25px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    font-weight: bold;
+
+}
+.objeto h1{
+    text-align: center;
+    font-size:2vw;
+    
+
+}
+
+.cuadro-pequeno {
+  width: 600px; /* o el ancho que desees */
+  height: 250px; /* o el alto que desees */
+  overflow: auto;
+}
+
+.arriba{
+    text-align: center;
+    font-size:2vw;
+
+}
+.paso{
+   position: absolute;
+     top: 0;
+    right: 0;
+    font-size: 1vw;
+    margin: 30px 40px;
+}
+.abajo{
+    text-align: center;
+    font-size: 1.5vw;
+
+}
