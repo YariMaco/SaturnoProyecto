@@ -128,6 +128,7 @@ public class SuscripcionController {
     
     @GetMapping("/home")
     public String showHome() {
-        return "navbar";
+        return "home";
     }
+
 }
