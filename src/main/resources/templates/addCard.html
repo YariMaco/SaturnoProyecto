@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,7 +11,7 @@
 
     </head>
     <body>
-        
+
         <div class="container">              
             <div class="objeto"> 
                 <div class="top">        
@@ -30,20 +31,74 @@
                             </div>
                             <div class ="txt_field">
                                 <input type="hidden" th:field="*{id}">
-                                <label>Nombre en la Tarjeta</label>
-                                <input type="text" id="nombre" th:field="*{nombret}" />
+                                <!-- Script Listo -->
+                                <label for="nombre" id="nombre" disabled>Nombre en la Tarjeta</label>
+                                <input type="text" id="nombreInp" th:field="*{nombret}" oninput="ocultarLabel()" onblur="mostrarLabel()"/>
+                                <script>
+                                    function ocultarLabel() {
+                                        document.querySelector("#nombre").style.display = "none";
+                                    }
+                                    function mostrarLabel() {
+                                        const input = document.querySelector("#nombreInp");
+                                        const label = document.querySelector("#nombre");
+
+                                        if (input.value.length === 0) {
+                                            label.style.display = "block";
+                                        }
+                                    }
+                                </script>
+                            </div>
+                            <!-- Script Listo -->
+                            <div class ="txt_field">
+                                <label for="numerot" id="numero" disabled>Número de Tarjeta</label>
+                                <input type="number" id="numeroInp" th:field="*{numerot}" oninput="ocultarLabel2()" onblur="mostrarLabel2()"/> 
+                                <script>
+                                    function ocultarLabel2() {
+                                        document.querySelector("#numero").style.display = "none";
+                                    }
+                                    function mostrarLabel2() {
+                                        const input = document.querySelector("#numeroInp");
+                                        const label = document.querySelector("#numero");
+
+                                        if (input.value.length === 0) {
+                                            label.style.display = "block";
+                                        }
+                                    }
+                                </script>
                             </div>
                             <div class ="txt_field">
-                                <label for="numerot">Número de Tarjeta</label>
-                                <input type="number" id="Numero" th:field="*{numerot}" />         
+                                <label for="nombreT" id="fechaex" disabled>Fecha de Expiración (MM/YY)</label>
+                                <input type="text" id="fechaexInp" th:field="*{fechaex}" oninput="ocultarLabel3()" onblur="mostrarLabel3()"/>
+                                <script>
+                                    function ocultarLabel3() {
+                                        document.querySelector("#fechaex").style.display = "none";
+                                    }
+                                    function mostrarLabel3() {
+                                        const input = document.querySelector("#fechaexInp");
+                                        const label = document.querySelector("#fechaex");
+
+                                        if (input.value.length === 0) {
+                                            label.style.display = "block";
+                                        }
+                                    }
+                                </script>
                             </div>
                             <div class ="txt_field">
-                                <label for="nombreT">Fecha de Expiración (MM/YY)</label>
-                                <input type="text" id="fechaex" th:field="*{fechaex}" />
-                            </div>
-                            <div class ="txt_field">
-                                <label for="codSe">Código de seguridad (CVV)</label>
-                                <input type="number" id="cvv" th:field="*{codse}" />
+                                <label for="codSe" id="cvv" disabled>Código de seguridad (CVV)</label>
+                                <input type="number" id="cvvInp" th:field="*{codse}" oninput="ocultarLabel4()" onblur="mostrarLabel4()"/>
+                                <script>
+                                    function ocultarLabel4() {
+                                        document.querySelector("#cvv").style.display = "none";
+                                    }
+                                    function mostrarLabel4() {
+                                        const input = document.querySelector("#cvvInp");
+                                        const label = document.querySelector("#cvv");
+
+                                        if (input.value.length === 0) {
+                                            label.style.display = "block";
+                                        }
+                                    }
+                                </script>
                             </div>
                             <button type="submit">Empezar Membresía</button>
                         </form>

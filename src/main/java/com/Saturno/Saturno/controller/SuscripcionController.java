@@ -130,12 +130,15 @@ public class SuscripcionController {
     public String showHome() {
         return "home";
     }
-
     
     @GetMapping("/terminosYcondiciones")
     public String mostrarTerminos() {
         return "terminosYcondiciones";
     }
     
+    @GetMapping("/iniSesion")
+    public String showIniSesion(){
+        return "inicioSesion";
+    }
 
 }
