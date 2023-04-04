@@ -1,0 +1,38 @@
+body{   
+    height: 100vh;
+    overflow: auto;
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56),rgba(0, 0, 0, 0.56)) ,url(../images/posters.jpg);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#submit1{
+    color: #fff;
+    display: block;
+    margin: 0 auto;
+    background-color: #B5C03D;
+    border: none;
+    border-radius: 5px;
+    padding: 10px 20px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.container h1{
+    color: #B5C03D;
+
+}
+.container{  
+    border-radius: 10px;
+    position: static;
+    background: #541E50; 
+    margin-top:200px;
+    padding-bottom: 3%;
+ 
+    
+}
+   

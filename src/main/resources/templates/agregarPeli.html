@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <title>Agregar Pelicula</title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+        <link rel="stylesheet" href="css/agregarPeli.css"/>
+
+    </head>
+    <body>
+        <div class="container">
+            <h1>Agregar Película</h1>
+            <form th:object="${pelicula}" th:action="@{/guardarPelicula}" method="post" enctype="multipart/form-data">                <div class="form-group">
+                    <label for="titulo">Título</label>
+                    <input type="text" class="form-control" id="titulo" th:field="*{titulo}">
+                </div>
+                <div class="form-group">
+                    <label for="duracion">Duración:</label>
+                    <input type="text" class="form-control" id="duracion" th:field="*{duracion}">
+                </div>
+                <div class="form-group">
+                    <label for="actores">Sinopsis:</label>
+                    <input type="text" class="form-control" id="descripcion" th:field="*{descripcion}">
+                </div>
+                <div class="form-group">
+                    <label>Imagen de portada:</label>
+                    <input type="file" th:field="*{rutaimagen}" accept="image/*">
+                </div>
+                <div class="form-group">
+                    <label for="director">Director:</label>
+                    <input type="text" class="form-control" id="director" th:field="*{director}">
+                </div>
+                <div class="form-group">
+                    <label for="actores">Actores:</label>
+                    <input type="text" class="form-control" id="actores" th:field="*{actores}">
+                </div>
+                <div class="form-group">
+                    <label for="score">Puntuación en Rotten Tomatoes:</label>
+                    <input type="number" class="form-control" id="score" th:field="*{score}">
+                </div>
+                <div class="form-group">
+                    <label for="ano">Año de estreno:</label>
+                    <input type="number" class="form-control" id="ano" th:field="*{ano}">
+                </div>
+                <div class="form-group">
+                    <label for="generos">Géneros</label>
+                    <select multiple class="form-control" id="generos" name="generos" th:field="*{generos}">
+                        <option th:each="x : ${generos}" th:value="${x.id}" th:text="${x.nombre}"></option>
+                    </select>
+                </div>
+                <button  id="submit1" type="submit" >Agregar</button>
+            </form>
+        </div>
+
+    </body>
+</html>
