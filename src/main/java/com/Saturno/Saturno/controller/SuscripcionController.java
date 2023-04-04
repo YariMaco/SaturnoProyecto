@@ -131,11 +131,23 @@ public class SuscripcionController {
         return "home";
     }
 
-    
     @GetMapping("/terminosYcondiciones")
     public String mostrarTerminos() {
         return "terminosYcondiciones";
     }
     
-
+    @GetMapping("/cuenta")
+    public String showMiCuenta() {
+        return "miCuenta";
+    }
+    
+    @GetMapping("/cuenta/cambioC")
+    public String showCambioContrasena() {
+        return "cambioContrasena";
+    }
+    
+    @GetMapping("/cuenta/cambioT")
+    public String showCambioTelefono() {
+        return "cambioTelefono";
+    }
 }
