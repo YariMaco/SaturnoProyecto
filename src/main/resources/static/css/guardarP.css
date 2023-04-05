@@ -1,0 +1,154 @@
+body{
+    background: rgb(72,35,82);
+    background: linear-gradient(0deg, rgba(72,35,82,1) 0%, rgba(17,12,17,1) 100%);
+    height: 100vh;
+    overflow: hidden;
+}
+.navbar{
+    height: 10vh;
+    width: 100%;
+    display: flex;
+    background: rgba(17, 14, 14,.86);
+}
+
+.logo{
+
+    width: 140px;
+    cursor: pointer;
+    position: absolute;
+    top: 13px;
+    right: 46%;
+
+}
+nav{
+    flex: 1;
+    padding-left: 2px;
+
+}
+
+nav ul li{
+    vertical-align: middle;
+    display: inline-block;
+    list-style: none;
+    margin: 0px 30px;
+    font-size: 18px;
+}
+nav ul li i {
+    vertical-align: sub;
+}
+.dropdown a{
+    margin-right: 33px;
+}
+
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #110E0F;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown-content a {
+    color: white;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+}
+
+.dropdown-content a:hover {
+    background-color: #495057;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+.dropdown:hover .dropbtn {
+    background-color: #3e8e41;
+}
+
+.movie {
+    clear: both;
+    margin-bottom: 10px;
+}
+.movie img {
+    float: left;
+    margin-right: 30px;
+    margin-left: 30px;
+    width: 97px;
+    height: 122px;
+
+}
+.movie .info {
+    display: inline-block;
+}
+.movie-list h1 {
+    color: #B5C03D;
+    font-size: 36px;
+    font-weight: bold;
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-bottom: 0;
+}
+
+.movie h2{
+    color: #B5C03D;
+}
+
+.movie p{
+    color: #B5C03D;
+}
+
+
+.movie-list hr {
+    border: 1px solid #B5C03D;
+    margin-right: 30px;
+    margin-left: 30px;
+    margin-bottom: 30px;
+    margin-top: 0px;
+
+}
+
+.movie:after{
+    content: "";
+    display: block;
+    margin: 30px;
+    border-bottom: 1px solid #B5C03D;
+}
+
+/*.movie-list:after {
+  content: "";
+  display: block;
+  
+  border-bottom: 1px solid #B5C03D;
+  
+}*/
+
+.button-container img{
+    width: 20px;
+    height: 20px;
+    align-items: center;
+    margin-right: 8px;
+}
+
+.button-container button{
+    background-color: #B5C03D;
+    border-color: #B5C03D;
+    width: 80px;
+    height: 40px;
+    padding: 8px 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+}
+
+.button-container button:hover{
+    background-color: gray;
+
+}
+
+
+

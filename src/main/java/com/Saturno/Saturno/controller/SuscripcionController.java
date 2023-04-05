@@ -131,6 +131,7 @@ public class SuscripcionController {
         return "home";
     }
 
+    
     @GetMapping("/terminosYcondiciones")
     public String mostrarTerminos() {
         return "terminosYcondiciones";
@@ -150,4 +151,9 @@ public class SuscripcionController {
     public String showCambioTelefono() {
         return "cambioTelefono";
     }
+    @GetMapping("/iniSesion")
+    public String showIniSesion(){
+        return "inicioSesion";
+    }
+
 }
