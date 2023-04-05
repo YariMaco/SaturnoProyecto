@@ -1,0 +1,87 @@
+
+/*CSS para editar el cambio de número telefónico'*/
+
+body{
+    margin: 0px;
+    font-family: 'Open Sans', sans-serif;
+    color: black;
+
+}
+
+.objeto{
+    position: relative;
+    width: 50%;
+    height: 60%;
+    display: flex;
+    background: lightgray;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 1%;
+}
+
+.top{
+    position: fixed;
+    left: 60vh;   
+    top: 20vh;
+}
+
+.bottom{
+    position: fixed;
+    right: 60vh;
+    bottom: 22.5vh;
+}
+
+.mitad{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 15%;
+    margin-bottom: 15%;
+}
+
+.mitad1{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin-left: 3.5%;
+}
+
+.mitad2{
+    width: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.container{
+    background-image: linear-gradient(rgba(0, 0, 0, 0.56),rgba(0, 0, 0, 0.56)) ,url(../images/posters.jpg);
+    background-position: center;
+    background-size: cover;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.barras1{
+    width: 100%;
+    margin-top: -20%;
+    margin-left: 50%;
+    margin-right: 50%;
+    border-top: solid grey thin;
+    color: black;
+}
+
+.barras2{
+    width: 100%;
+    margin-bottom: -20%;
+    margin-left: 50%;
+    margin-right: 50%;
+    border-top: solid grey thin;
+    color: black;
+}

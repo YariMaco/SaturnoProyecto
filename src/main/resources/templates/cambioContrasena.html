@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<!--
+Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this template
+-->
+<html xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <title>Mi Cuenta</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <link rel="stylesheet" href="../css/cambioC.css"/>
+    </head>
+    
+    <body>
+        <div class="container">
+            <div class="objeto"> 
+                <div class="top">                 
+                    <h1>Crear una nueva contraseña</h1>
+                </div>
+                <div class="barras1"></div>
+                <div class="mitad">
+                    <div class="mitad1"> 
+                        <div class ="txt_field">
+                            <label for="">Escriba la contraseña actual</label>
+                            <!-- <input type="" id="" th:field="*{}" />  -->
+                        </div>
+                        <p>* La contraseña debe tener <br> mínimo 8 caracteres e incluir <br> letras,
+                          números y símbolos</p>
+
+                    </div>
+                    <div class="mitad2">
+                        <div class ="txt_field">
+                            <label for="">Escriba la nueva contraseña</label>
+                            <!-- <input type="" id="" th:field="*{}" />  -->   
+                        </div>
+                        <br>
+                        <div class ="txt_field">
+                            <label for="">Vuelva a digitar la contraseña</label>
+                            <!-- <input type="" id="" th:field="*{}" /> -->
+                        </div>
+                    </div>
+                </div>
+                <div class="barras2"></div>
+                <div class="bottom">
+                    <button type="submit">Cancelar</button>
+                    <button type="submit">Continuar</button> 
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
