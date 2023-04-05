@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <!--
 Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -5,48 +6,28 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 -->
 <html>
     <head>
-        <title>TODO supply a title</title>
-        <meta charset="UTF-8">
+        <title>Index</title>
+        <meta charset="UTF-8">        
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="/css/iniSesion.css" rel="stylesheet" type="text/css"/>
+        <link rel="stylesheet" href="css/iniSesion.css"/>
+        <link href="https://fonts.googleapis.com/css?family=Material+Icons|Material+Icons+Outlined|Material+Icons+Two+Tone|Material+Icons+Round|Material+Icons+Sharp" rel="stylesheet">
     </head>
+
     <body>
         <div class = container> 
-
             <div class = mitad1>
-                <div class="titulo">
-                    <img class="meteoro" src="/images/logohomw.png" alt="meteoro"/>
-                    <h1>Registro</h1>
-                </div>
-                <div class = registro>              
-                    <form class = signup>
-                        
-                        <div class="TextField">
-                            <label  for="nickname">Usuario:</label>
-                            <input type="text" id="nickname" aria-describedby="emailHelp" required>
-                        </div>
-                        <div class="TextField">
-                            <label  for="nombre">Nombre:</label>
-                            <input type="text" id="nombre" aria-describedby="emailHelp" required>
-                        </div>
-                       
-                        <div class="check">
-                            <input type="checkbox" id="terminos" name="terminos" value="Terms" required>
-                            <label for="terminos">Acepto los <a href="" style="color:white">terminos y condiciones</a></label><br>
-                            <input type="checkbox" id="notificaciones" name="notificaciones" value="Noti">
-                            <label for="notificaciones">Recibir notificaciones a mi correo</label><br>
-                        </div>
-                        <div class="subm">
-                            <input id="submit1" type="submit" value="Crear Cuenta" name="Submit" />
-                        </div>
-
+                <img id="logo" src="/images/logohomw.png" alt=""/>
+                <p class="arriba">Entretenimiento en todo momento.</p>
+                <p class="abajo">¡Bienvenido otra vez!</p>
+                <div class = correo_sec>  
+                    <form action="continuaR" method="post">
+                        <input type="email" id="email" placeholder="Correo electrónico" name="email" required>
+                        <button id="submit1" type="submit">Regístrate<i class="material-icons" style="font-size:35px;color:white;">arrow_right</i></button>
                     </form>
                 </div>
-
             </div>
-            <div class = mitad2> 
-                <a class="signin" href="#">Sign in</a>
-                <img class="logo" src="images/grande.png" alt="Logo"/>
+            <div class = mitad2>
+                <a class="signin" href="/iniSesion">Sign in</a>              
             </div>
         </div>
     </body>

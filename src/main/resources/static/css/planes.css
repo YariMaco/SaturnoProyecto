@@ -1,9 +1,20 @@
-
 body{
     margin: 0px;
     font-family: 'Open Sans', sans-serif;
     color: #fff;
 
+}
+#Logo{
+    position: absolute;
+    width: 15%;
+    height: 10%;
+    top: 3vh;
+    left: 12vh;
+}
+.card-deck{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
 }
 .objeto{
     position: relative;
@@ -11,109 +22,37 @@ body{
     height: 70%;
     display: flex;
     background: #541E50;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-}
-.top #logo{
-    position: absolute;
-    width: 15%;
-    height: 10%;
-    top: -9vh;
-    left: -6vh;
-}
-.top .signin{
-    position: absolute;
-    top: -9vh;
-    right: -6vh;
-    background-color: #B5C03D;
-    color: #fff;
-    padding: 12px 28px;
-    border-radius: 5px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 18px;
-}
-.top .paso{
-    position: absolute;
-    left: 134vh;
-    top: 0vh;
-}
-.top p{
-    text-align: center;
-}
-
-.bottom{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-}
-.mitad1{
-    width: 50%;
-    display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-}
-form{
-    width: 23%;
-    height: 100%;
-}
-form .txt_field{
-    position:relative;
-    margin-left: -10vw;
-}
-.txt_field input{
-    width: 170%;
-    padding: 0 6px;
-    height: 7vmin;
-    font-size: 20px;
-    border-top: none;
-    border-left: none;
-    border-right: none;
-    border-color: white;
-    background: none;
-    outline: none;
-    font-weight: 600;
-}
-
-.txt_field label{
-    position: absolute;
-    top: 52%;
-    left: 2%;
+    gap: 20px;
     
-    transform: translateY(-60%);
-    font-size: 16px;
-    text-decoration: none;
 }
-.mitad1 button{
-    position: absolute;
-    left: 95vh;
-    background-color: #B5C03D;
-    color: #fff;
-    padding: 15px 28px;
-    border-radius: 15px;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 17px;
+.card{
+    flex: 1;
+    margin: 10px;
+    width: 14vw;
+    background-color:rgba(255, 255, 255, .13);
+    border-radius: 5px;
+    padding: 0px 50px;
+    justify-content: center;
+    align-items: center;
 }
-.mitad2{
-    width: 50%;
+.card-body{
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
-
+    width: 13.7vw;
 }
-.mitad2 p{
-    text-align: justify;
-    margin: 10%;
-    font-size: 100%;
-}
+.contenido{
+    flex: 1;
+    margin: 10px;
+    width: 13vw;
+    background-color: white;
+    border-radius: 5px;
+    padding: 10px;
 
-.mitad2 a{
-    color: white;
 }
 .container{
     background-image: linear-gradient(rgba(0, 0, 0, 0.56),rgba(0, 0, 0, 0.56)) ,url(../images/posters.jpg);
@@ -125,4 +64,44 @@ form .txt_field{
     align-items: center;
     flex-direction: column;
 }
-
+.card-text{
+    color: black;
+    text-align: center;
+}
+.card a{
+    background-color: #B5C03D;
+    color: #fff;
+    /*15 28*/
+    padding: 15px 28px;
+    border-radius: 15px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1vw;
+}
+#precio{
+    font-weight: bold;
+    font-size: 1.5vw;
+}
+.paso{
+    position: absolute;
+    top: 0;
+    right: 0;
+    font-size: 1vw;
+    margin: 30px 40px;
+}
+.card-title{
+    font-size: 2vw;
+}
+.signin{
+    position: absolute;
+    top: 40px;
+    right: 40px;
+    background-color: #B5C03D;
+    color: #fff;
+    /*12 28*/
+    padding: 12px 28px; 
+    border-radius: 5px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.5vw;
+}

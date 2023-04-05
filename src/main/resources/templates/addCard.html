@@ -16,7 +16,7 @@
             <div class="objeto"> 
                 <div class="top">        
                     <img id="logo" src="/images/logohomw.png" alt="Logo"/>
-                    <a class="signin" href="#">Sign in</a>
+                    <a class="signin" href="/iniSesion">Sign in</a>
                     <p class="paso">Paso 3/3</p>
                     <h1>Agregá una tarjeta</h1>
                     <p><i class="material-icons"style="font-size:35px;color:#B5C03D;">https</i>Pago seguro y encriptado</p>
@@ -50,8 +50,8 @@
                             </div>
                             <!-- Script Listo -->
                             <div class ="txt_field">
-                                <label for="numerot" id="numero" disabled>Número de Tarjeta</label>
-                                <input type="number" id="numeroInp" th:field="*{numerot}" oninput="ocultarLabel2()" onblur="mostrarLabel2()"/> 
+                                <label for="numerot" id="numero" disabled>Número de Tarjeta</label><!-- No se puede quitar el 0 -->
+                                <input type="number" id="numeroInp" th:field="*{numerot}" oninput="ocultarLabel2()" onblur="mostrarLabel2()" value=""/> 
                                 <script>
                                     function ocultarLabel2() {
                                         document.querySelector("#numero").style.display = "none";
@@ -85,7 +85,7 @@
                             </div>
                             <div class ="txt_field">
                                 <label for="codSe" id="cvv" disabled>Código de seguridad (CVV)</label>
-                                <input type="number" id="cvvInp" th:field="*{codse}" oninput="ocultarLabel4()" onblur="mostrarLabel4()"/>
+                                <input type="number" id="cvvInp" th:field="*{codse}" oninput="ocultarLabel4()" onblur="mostrarLabel4()" value=""/>
                                 <script>
                                     function ocultarLabel4() {
                                         document.querySelector("#cvv").style.display = "none";
@@ -110,7 +110,7 @@
                             del plan, nuestro servicio volverá a renovarlo.
                             Puedes cancelar tu plan en cualquier momento 
                             entrando a las configuraciones de tu perfil. 
-                            Revisa los <a href=""> términos y condiciones</a> para más
+                            Revisa los <a href="/terminosYcondiciones"> términos y condiciones</a> para más
                             información</p>
                     </div>
                 </div>
