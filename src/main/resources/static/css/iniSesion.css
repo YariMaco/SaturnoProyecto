@@ -4,6 +4,9 @@ body{
     color: #fff;
 
 }
+a{
+    color: white;
+}
 .container{
     display: flex;
     height: 100vh;
@@ -62,6 +65,12 @@ body{
     height: 10%;
     top: 3vh;
     left: 12vh;
+}
+.mitad2 #logo{
+    width: 15%;
+    height: 10%;
+    /*top: 3vh;
+    left: 12vh;*/
 }
 
 .signin{

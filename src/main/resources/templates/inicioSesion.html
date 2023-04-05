@@ -19,15 +19,22 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <img id="logo" src="/images/logohomw.png" alt=""/>
                 <p class="arriba">Entretenimiento en todo momento.</p>
                 <p class="abajo">¡Bienvenido otra vez!</p>
-                <div class = correo_sec>  
-                    <form action="continuaR" method="post">
-                        <input type="email" id="email" placeholder="Correo electrónico" name="email" required>
-                        <button id="submit1" type="submit">Regístrate<i class="material-icons" style="font-size:35px;color:white;">arrow_right</i></button>
-                    </form>
-                </div>
+                <p>¿Primera vez utilizando Saturno? <a href="/usuarioN">Registrate</a></p>
             </div>
             <div class = mitad2>
-                <a class="signin" href="/iniSesion">Sign in</a>              
+                <div><img id="logo" src="/images/meteoro.png" alt=""/><h1>Inicio de Sesion</h1></div>
+                <form>
+                    <div class="TextField">
+                        <label  for="nickname">Usuario:</label>
+                        <input type="text" id="nickname" aria-describedby="emailHelp" required>
+                    </div>
+                    <div class="TextField">
+                        <label for="contrasena">Contraseña:</label>
+                        <input type="password" id="contrasena" aria-describedby="emailHelp" required>
+                    </div>
+                </form>
+                <div><p>¿Olvidaste tu contraseña? <a href="">Recuperar</a></p></div>
+                <div><a class="signin" href="/iniSesion">Iniciar Sesión</a></div>
             </div>
         </div>
     </body>
