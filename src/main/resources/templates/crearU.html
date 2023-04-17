@@ -47,7 +47,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         </div>
                         <div class="TextField">
                             <label for="contrasenaconfirm">Confirme Contraseña:</label>
-                            <input type="password" th:field="*{contrasenaconfirm}" id="contrasenaconfirm" aria-describedby="emailHelp" required>
+                            <input type="password" name="contrasenaconfirm" id="contrasenaconfirm" aria-describedby="emailHelp" required>
+                            <p th:if="${#fields.hasErrors('contrasena')}" class="error-message" th:errors="*{contrasena}"></p>
+                            <p th:text="${error}" class="error-message"></p>
                         </div>
                         <div class="check">
                             <input type="checkbox" id="terminos" name="terminos" value="Terms" required>

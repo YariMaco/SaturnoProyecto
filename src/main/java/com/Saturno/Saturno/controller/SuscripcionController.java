@@ -3,6 +3,7 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
  */
 package com.Saturno.Saturno.controller;
+
 import com.Saturno.Saturno.entity.Plan;
 import com.Saturno.Saturno.entity.Suscripcion;
 import com.Saturno.Saturno.entity.Tarjeta;
@@ -16,6 +17,7 @@ import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,8 +40,8 @@ public class SuscripcionController {
 
     @GetMapping("/usuarioN")
     public String registrarse(Model model, HttpSession session) {
-        Usuario usuario =  new Usuario();
-        model.addAttribute("usuario",usuario);
+        Usuario usuario = new Usuario();
+        model.addAttribute("usuario", usuario);
         String email = (String) session.getAttribute("email");
         model.addAttribute("email", email);
         usuario.setEmail(email);
@@ -56,11 +58,22 @@ public class SuscripcionController {
     @PostMapping("/suscripciones")
     public String crearSuscripcion(@ModelAttribute("usuario") Usuario usuario,
             @ModelAttribute("suscripcion") Suscripcion suscripcion,
-            @RequestParam("email") String email) {
+            @RequestParam("email") String email,
+            @RequestParam("contrasenaconfirm") String contrasenaConfirm,
+            Model model) {
+        if (!usuario.getContrasena().equals(contrasenaConfirm)) {
+            model.addAttribute("error", "*Las contraseñas no coinciden*");
+            model.addAttribute("email", email);
+            return "crearU";
+        }
         usuario.setEmail(email);
+        String contrasenaEncriptada = new BCryptPasswordEncoder().encode(usuario.getContrasena());
+        usuario.setContrasena(contrasenaEncriptada);
         usuarioService.saveUsuario(usuario);
+
         suscripcion.setUsuario(usuario);
         suscripcionService.saveSuscripcion(suscripcion);
+
         long idsuscripcion = suscripcion.getId();
         return "redirect:/graciasRe/" + idsuscripcion;
     }
@@ -106,7 +119,7 @@ public class SuscripcionController {
             @PathVariable("idPlan") Long idPlan, Model model) {
         Plan plan = planService.getPlanById(idPlan);
         Suscripcion suscripcion = suscripcionService.getSuscirpcionById(idSuscripcion);
-        Date  empieza = new Date(System.currentTimeMillis());
+        Date empieza = new Date(System.currentTimeMillis());
         suscripcion.setFechainicio(empieza);
         int meses = plan.getDuracion();
         LocalDate localDate = empieza.toLocalDate();
@@ -121,38 +134,39 @@ public class SuscripcionController {
         model.addAttribute("usuario", usuario);
         return "redirect:/graciasSus";
     }
+
     @GetMapping("/graciasSus")
     public String suscripcionExitosa() {
         return "graciasSus";
     }
-    
+
     @GetMapping("/home")
     public String showHome() {
         return "home";
     }
 
-    
     @GetMapping("/terminosYcondiciones")
     public String mostrarTerminos() {
         return "terminosYcondiciones";
     }
-    
+
     @GetMapping("/cuenta")
     public String showMiCuenta() {
         return "miCuenta";
     }
-    
+
     @GetMapping("/cuenta/cambioC")
     public String showCambioContrasena() {
         return "cambioContrasena";
     }
-    
+
     @GetMapping("/cuenta/cambioT")
     public String showCambioTelefono() {
         return "cambioTelefono";
     }
+
     @GetMapping("/iniSesion")
-    public String showIniSesion(){
+    public String showIniSesion() {
         return "inicioSesion";
     }
 

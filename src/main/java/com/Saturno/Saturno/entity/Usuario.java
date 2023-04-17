@@ -27,7 +27,6 @@ public class Usuario implements Serializable {
     private String nickname;
     private String email;
     private String contrasena;
-    private String contrasenaconfirm;
     private int telefono;
    
 
@@ -63,13 +62,6 @@ public class Usuario implements Serializable {
         this.nickname = nickname;
     }
 
-    public String getContrasenaconfirm() {
-        return contrasenaconfirm;
-    }
-
-    public void setContrasenaconfirm(String contrasenaconfirm) {
-        this.contrasenaconfirm = contrasenaconfirm;
-    }
     public String getEmail() {
         return email;
     }

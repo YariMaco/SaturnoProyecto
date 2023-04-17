@@ -33,7 +33,7 @@
                                 <input type="hidden" th:field="*{id}">
                                 <!-- Script Listo -->
                                 <label for="nombre" id="nombre" disabled>Nombre en la Tarjeta</label>
-                                <input type="text" id="nombreInp" th:field="*{nombret}" oninput="ocultarLabel()" onblur="mostrarLabel()"/>
+                                <input type="text" id="nombreInp" th:field="*{nombret}" oninput="ocultarLabel()" onblur="mostrarLabel()" required/>
                                 <script>
                                     function ocultarLabel() {
                                         document.querySelector("#nombre").style.display = "none";
@@ -51,7 +51,7 @@
                             <!-- Script Listo -->
                             <div class ="txt_field">
                                 <label for="numerot" id="numero" disabled>Número de Tarjeta</label><!-- No se puede quitar el 0 -->
-                                <input type="number" id="numeroInp" th:field="*{numerot}" oninput="ocultarLabel2()" onblur="mostrarLabel2()" value=""/> 
+                                <input type="number" id="numeroInp" th:field="*{numerot}" oninput="ocultarLabel2()" onblur="mostrarLabel2()" value="" required/> 
                                 <script>
                                     function ocultarLabel2() {
                                         document.querySelector("#numero").style.display = "none";
@@ -68,7 +68,7 @@
                             </div>
                             <div class ="txt_field">
                                 <label for="nombreT" id="fechaex" disabled>Fecha de Expiración (MM/YY)</label>
-                                <input type="text" id="fechaexInp" th:field="*{fechaex}" oninput="ocultarLabel3()" onblur="mostrarLabel3()"/>
+                                <input type="text" id="fechaexInp" th:field="*{fechaex}" oninput="ocultarLabel3()" onblur="mostrarLabel3()" required/>
                                 <script>
                                     function ocultarLabel3() {
                                         document.querySelector("#fechaex").style.display = "none";
@@ -85,7 +85,7 @@
                             </div>
                             <div class ="txt_field">
                                 <label for="codSe" id="cvv" disabled>Código de seguridad (CVV)</label>
-                                <input type="number" id="cvvInp" th:field="*{codse}" oninput="ocultarLabel4()" onblur="mostrarLabel4()" value=""/>
+                                <input type="number" id="cvvInp" th:field="*{codse}" oninput="ocultarLabel4()" onblur="mostrarLabel4()" value="" required/>
                                 <script>
                                     function ocultarLabel4() {
                                         document.querySelector("#cvv").style.display = "none";

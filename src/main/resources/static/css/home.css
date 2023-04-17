@@ -20,6 +20,12 @@ body{
     margin-left: 22%;
     margin-top:2%;
 }
+.error-message {
+    color: #FFA500;
+    padding: 5px;
+    margin-top: 10px;
+    font-size: 14px;
+}
 .meteoro{
     width: 27%;
     height: 27%;
