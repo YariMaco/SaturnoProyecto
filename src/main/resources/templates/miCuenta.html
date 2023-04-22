@@ -59,16 +59,16 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <div class="barras1"></div>
             
             <div class="relative1"> 
-                <h2>Nombre del propietario: </h2>
+                <h2>Nombre del propietario: <span sec:authentication="principal.nombre"></span></h2>
             </div>
             <div class="relative2"> 
-                <h2>Teléfono: </h2> 
+                <h2>Teléfono: <span sec:authentication="principal.telefono"> </h2> 
                 <a href="/cuenta/cambioT">Cambiar número de teléfono</a>
             </div>
             <div class="barras2"></div>
             
             <div class="relative3"> 
-                <h2>Usuario: </h2> 
+                <h2>Usuario: <span sec:authentication="principal.username"> </h2> 
             </div>
             <div class="relative4"> 
                 <h2>Contraseña: </h2> 
@@ -77,7 +77,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <div class="barras3"></div>
             
             <div class="relative5"> 
-                <h2>Plan actual: </h2>
+                <h2>Plan actual: <span sec:authentication="principal.nombrePlan"> </h2>
                 <a href="">Cambiar el plan</a>
             </div>
             

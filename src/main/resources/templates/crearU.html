@@ -27,7 +27,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <input type="hidden" name="email" th:field="*{email}" value="${email}" />
                         <div class="TextField">
                             <label  for="nickname">Usuario:</label>
-                            <input type="text" th:field="*{nickname}" id="nickname" aria-describedby="emailHelp" required>
+                            <input type="text" name="nickname" id="nickname" aria-describedby="emailHelp" required>
                         </div>
                         <div class="TextField">
                             <label  for="nombre">Nombre:</label>
@@ -43,14 +43,14 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         </div>
                         <div class="TextField">
                             <label for="contrasena">Contraseña:</label>
-                            <input type="password" th:field="*{contrasena}" id="contrasena" aria-describedby="emailHelp" required>
+                            <input type="password" name="contrasena" id="contrasena" aria-describedby="emailHelp" required>
                         </div>
                         <div class="TextField">
                             <label for="contrasenaconfirm">Confirme Contraseña:</label>
                             <input type="password" name="contrasenaconfirm" id="contrasenaconfirm" aria-describedby="emailHelp" required>
-                            <p th:if="${#fields.hasErrors('contrasena')}" class="error-message" th:errors="*{contrasena}"></p>
-                            <p th:text="${error}" class="error-message"></p>
+                            <p th:if="${error}" class="error-message" th:text="${error}"></p>
                         </div>
+
                         <div class="check">
                             <input type="checkbox" id="terminos" name="terminos" value="Terms" required>
                             <label for="terminos">Acepto los <a href="/terminosYcondiciones" style="color:white">terminos y condiciones</a></label><br>

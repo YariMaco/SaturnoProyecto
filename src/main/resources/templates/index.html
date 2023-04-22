@@ -16,23 +16,25 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     <body>
         <div class = container> 
             <div class = mitad1>
-               
-                     <p class="arriba">Entretenimiento en todo momento.</p>
-                     <img class="logo" src="images/logohomw.png" alt="Logo"/>
-                     <p class="abajo">Mira tus películas y series favoritas.</p>
-                  
+
+                <p class="arriba">Entretenimiento en todo momento.</p>
+                <img class="logo" src="images/logohomw.png" alt="Logo"/>
+                <p class="abajo">Mira tus películas y series favoritas.</p>
+
                 <div class = correo_sec>
-                    
-                <form action="continuaR" method="post">
-                    <input type="email" id="email" placeholder="Correo electrónico" name="email" required>
-                    <button id="submit1" type="submit">Regístrate<i class="material-icons" style="font-size:35px;color:white;">arrow_right</i></button>
-                </form>
+
+                    <form action="continuaR" method="post">
+                        <input type="email" id="email" placeholder="Correo electrónico" name="email" required>
+                        <button id="submit1" type="submit">Regístrate<i class="material-icons" style="font-size:35px;color:white;">arrow_right</i></button>
+                    </form>
+                    <p th:text="${error}" th:if="${error}" class="error-message" ></p>
+
                 </div>
             </div>
             <div class = mitad2>
-                <a class="signin" href="/iniSesion">Sign in</a>              
+                <a class="signin" href="/login">Sign in</a>              
             </div>
-            
+
 
         </div>
 

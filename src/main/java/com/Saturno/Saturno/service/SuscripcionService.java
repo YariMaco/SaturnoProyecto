@@ -39,5 +39,9 @@ public class SuscripcionService implements ISuscripcionService{
         suscripcionRepository.deleteById(id);
     }
     
+    @Override
+    public Suscripcion findByNickname(String nickname) {
+        return suscripcionRepository.findByNickname(nickname);
+    }
     
 }

@@ -12,7 +12,7 @@ import com.Saturno.Saturno.service.IPlanService;
 import com.Saturno.Saturno.service.ISuscripcionService;
 import com.Saturno.Saturno.service.ITarjetaService;
 import com.Saturno.Saturno.service.IUsuarioService;
-import jakarta.servlet.http.HttpSession;
+import javax.servlet.http.HttpSession;
 import java.sql.Date;
 import java.time.LocalDate;
 import java.util.List;
@@ -49,26 +49,38 @@ public class SuscripcionController {
         return "crearU";
     }
 
+  
     @PostMapping("/continuaR")
-    public String siguientePagina(@RequestParam("email") String email, HttpSession session) {
+    public String siguientePagina(@RequestParam("email") String email, HttpSession session, Model model) {
         session.setAttribute("email", email);
-        return "redirect:/usuarioN";
+        boolean correoExiste = usuarioService.verificarCorreoExistente(email);
+        if(correoExiste){
+           model.addAttribute("error", "*Correo ya en uso por una cuenta, inicie sesión*");
+           return "index";            
+        }else{
+            return "redirect:/usuarioN";
+        }        
     }
-
     @PostMapping("/suscripciones")
     public String crearSuscripcion(@ModelAttribute("usuario") Usuario usuario,
             @ModelAttribute("suscripcion") Suscripcion suscripcion,
             @RequestParam("email") String email,
             @RequestParam("contrasenaconfirm") String contrasenaConfirm,
+            @RequestParam("contrasena") String contrasena,
+            @RequestParam("nickname") String nickname,
             Model model) {
-        if (!usuario.getContrasena().equals(contrasenaConfirm)) {
+        if (!contrasena.equals(contrasenaConfirm)) {
             model.addAttribute("error", "*Las contraseñas no coinciden*");
             model.addAttribute("email", email);
             return "crearU";
         }
-        usuario.setEmail(email);
-        String contrasenaEncriptada = new BCryptPasswordEncoder().encode(usuario.getContrasena());
-        usuario.setContrasena(contrasenaEncriptada);
+        usuario.setEmail(email);      
+        usuario.setRoles("USER");
+        usuario.setPermissions("USER");
+        String contrasenaEncriptada = new BCryptPasswordEncoder().encode(contrasena);
+        suscripcion.setContrasena(contrasenaEncriptada);
+        suscripcion.setNickname(nickname);
+        
         usuarioService.saveUsuario(usuario);
 
         suscripcion.setUsuario(usuario);
@@ -126,12 +138,11 @@ public class SuscripcionController {
         LocalDate newLocalDate = localDate.plusMonths(meses);
         Date finaliza = Date.valueOf(newLocalDate);
         suscripcion.setFechafinal(finaliza);
+        suscripcion.setActive(1);
         suscripcion.setPlan(plan);
-        Usuario usuario = suscripcion.getUsuario();
         tarjetaService.saveTarjeta(tarjeta);
         suscripcion.setTarjeta(tarjeta);
         suscripcionService.saveSuscripcion(suscripcion);
-        model.addAttribute("usuario", usuario);
         return "redirect:/graciasSus";
     }
 
@@ -150,24 +161,5 @@ public class SuscripcionController {
         return "terminosYcondiciones";
     }
 
-    @GetMapping("/cuenta")
-    public String showMiCuenta() {
-        return "miCuenta";
-    }
-
-    @GetMapping("/cuenta/cambioC")
-    public String showCambioContrasena() {
-        return "cambioContrasena";
-    }
-
-    @GetMapping("/cuenta/cambioT")
-    public String showCambioTelefono() {
-        return "cambioTelefono";
-    }
-
-    @GetMapping("/iniSesion")
-    public String showIniSesion() {
-        return "inicioSesion";
-    }
-
+    
 }

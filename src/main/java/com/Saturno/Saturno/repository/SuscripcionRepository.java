@@ -14,5 +14,5 @@ import org.springframework.stereotype.Repository;
  */
 @Repository
 public interface SuscripcionRepository extends CrudRepository<Suscripcion,Long> {
-    
+    Suscripcion findByNickname(String nickname);
 }

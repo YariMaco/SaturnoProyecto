@@ -20,4 +20,7 @@ public interface ISuscripcionService {
     public void saveSuscripcion(Suscripcion suscripcion);
 
     public void delete(long id);
+    
+    public Suscripcion findByNickname(String nickname);
+
 }

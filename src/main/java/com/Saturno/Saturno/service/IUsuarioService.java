@@ -15,5 +15,7 @@ public interface IUsuarioService {
     public List<Usuario> getAllUsuario(); //No se va a usar, un usuario no puede ver otros
     //si el admin quiere verlos tiene que ser desde la suscripcion
     public Usuario getUsuarioById(long id);
-    public void saveUsuario(Usuario usuario);    
+    public void saveUsuario(Usuario usuario);   
+    boolean verificarCorreoExistente(String email);
+
 }

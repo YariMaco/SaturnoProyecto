@@ -27,18 +27,20 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <img id="logo" src="/images/meteoro.png" alt=""/>
                         <h1>Inicio de Sesion</h1>
                     </div>
-                    <form>
+                    <form th:action="@{/login}" method="post">
                         <div class="TextField">
                             <label  for="nickname">Usuario:</label>
-                            <input type="text" id="nickname" aria-describedby="emailHelp" required>
+                            <input type="text" id="username" name="username" aria-describedby="emailHelp" required>
                         </div>
                         <div class="TextField">
                             <label for="contrasena">Contraseña:</label>
-                            <input type="password" id="contrasena" aria-describedby="emailHelp" required>
+                            <input type="password" id="password" name="password" aria-describedby="emailHelp" required>
                         </div>
+                        <p th:text="${error}" th:if="${error}" class="error-message" ></p>
+                        <div><button type="submit" id="iniciar" href="/iniSesion">Iniciar Sesión</button></div>
+
                     </form>
                     <div class="Recuperacion"><p>¿Olvidaste tu contraseña? <a href="">Recuperar</a></p></div>
-                    <div><a class="signin" id="iniciar" href="/iniSesion">Iniciar Sesión</a></div>
                 </div>
             </div>
         </div>

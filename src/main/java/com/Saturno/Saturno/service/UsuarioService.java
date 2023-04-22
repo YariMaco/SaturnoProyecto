@@ -34,5 +34,10 @@ public class UsuarioService implements IUsuarioService {
     public void saveUsuario(Usuario usuario) {
         usuarioRepository.save(usuario);//NO creo que sea útil
     }
+    @Override
+    public boolean verificarCorreoExistente(String email) {
+        Usuario usuario = usuarioRepository.findByEmail(email);       
+        return usuario != null;    
+    } 
 
 }

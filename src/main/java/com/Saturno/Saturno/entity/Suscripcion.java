@@ -4,16 +4,14 @@
  */
 package com.Saturno.Saturno.entity;
 
-import com.Saturno.Saturno.entity.Plan;
-import com.Saturno.Saturno.entity.Tarjeta;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.JoinColumn;
-import jakarta.persistence.ManyToOne;
-import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToOne;
+import javax.persistence.Table;
 import java.io.Serializable;
 import java.sql.Date;
 
@@ -23,24 +21,27 @@ import java.sql.Date;
  */
 @Entity
 @Table(name = "suscripciones")
-public class Suscripcion implements Serializable{
+public class Suscripcion implements Serializable {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private Date fechainicio;
     private Date fechafinal;
-    
-    
+    private String nickname;
+    private String contrasena;
+    private int active;
+
     @OneToOne
-    @JoinColumn(name="usuarios_id")
+    @JoinColumn(name = "usuarios_id")
     private Usuario usuario;
-    
+
     @ManyToOne
-    @JoinColumn(name="planes_id")
+    @JoinColumn(name = "planes_id")
     private Plan plan;
-    
+
     @OneToOne
-    @JoinColumn(name="tarjetas_id")
+    @JoinColumn(name = "tarjetas_id")
     private Tarjeta tarjeta;
 
     public long getId() {
@@ -51,6 +52,15 @@ public class Suscripcion implements Serializable{
         this.id = id;
     }
 
+    public int getActive() {
+        return active;
+    }
+
+    public void setActive(int active) {
+        this.active = active;
+    }
+
+    
     public Date getFechainicio() {
         return fechainicio;
     }
@@ -81,17 +91,30 @@ public class Suscripcion implements Serializable{
 
     public void setPlan(Plan plan) {
         this.plan = plan;
-    }    
-    
+    }
+
     public Tarjeta getTarjeta() {
         return tarjeta;
     }
 
     public void setTarjeta(Tarjeta tarjeta) {
         this.tarjeta = tarjeta;
-    }  
-    
-    
-    
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getContrasena() {
+        return contrasena;
+    }
+
+    public void setContrasena(String contrasena) {
+        this.contrasena = contrasena;
+    }
+
 }
- 
