@@ -13,6 +13,9 @@ import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 
 /**
  *
@@ -26,12 +29,19 @@ public class Usuario implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nombre;
-    private String apellido1;  
-    private String email;   
+    private String apellido1;
+    private String email;
     private int telefono;
     private String roles = "";
     private String permissions = "";
-   
+
+    @ManyToMany
+    @JoinTable(
+            name = "usuario_pelicula",
+            joinColumns = @JoinColumn(name = "usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "pelicula_id")
+    )
+    private List<Pelicula> peliculasFavoritas;
 
     public long getId() {
         return id;
@@ -72,7 +82,7 @@ public class Usuario implements Serializable {
     public void setTelefono(int telefono) {
         this.telefono = telefono;
     }
-    
+
     public String getRoles() {
         return roles;
     }
@@ -88,17 +98,34 @@ public class Usuario implements Serializable {
     public void setPermissions(String permissions) {
         this.permissions = permissions;
     }
+
+    public List<Pelicula> getPeliculasFavoritas() {
+        return peliculasFavoritas;
+    }
+
+    public void setPeliculasFavoritas(List<Pelicula> peliculasFavoritas) {
+        this.peliculasFavoritas = peliculasFavoritas;
+    }
+
+    public void agregarPeliculaFavorita(Pelicula pelicula) {
+        if (peliculasFavoritas == null) {
+            peliculasFavoritas = new ArrayList<>();
+        }
+        peliculasFavoritas.add(pelicula);
+    }
+
     public List<String> getRoleList() {
         if (this.roles.length() > 0) {
             return Arrays.asList(this.roles.split(","));
         }
         return new ArrayList<>();
     }
+
     public List<String> getPermissionList() {
         if (this.permissions.length() > 0) {
             return Arrays.asList(this.permissions.split(","));
         }
         return new ArrayList<>();
-    }    
-  
+    }
+
 }

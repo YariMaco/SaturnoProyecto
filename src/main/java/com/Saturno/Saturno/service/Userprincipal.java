@@ -4,6 +4,7 @@
  */
 package com.Saturno.Saturno.service;
 
+import com.Saturno.Saturno.entity.Pelicula;
 import com.Saturno.Saturno.entity.Suscripcion;
 import java.util.Collection;
 import java.util.List;
@@ -67,8 +68,10 @@ public class Userprincipal implements UserDetails {
     }
 
     public void setTelefono(int telefono) {
-        this.suscripcion.getUsuario().setTelefono(telefono);
-
+        this.suscripcion.getUsuario().setTelefono(telefono);  
+    }
+    public void setPeliculasFavoritas(List<Pelicula> peliculasFavoritas) {
+        this.suscripcion.getUsuario().setPeliculasFavoritas(peliculasFavoritas);
     }
 
     @Override

@@ -4,6 +4,7 @@
  */
 package com.Saturno.Saturno.service;
 
+import com.Saturno.Saturno.entity.Genero;
 import com.Saturno.Saturno.entity.Pelicula;
 import java.util.List;
 
@@ -16,4 +17,6 @@ public interface IPeliculaService {
     public Pelicula getPeliculaById(long id);
     public void savePelicula(Pelicula pelicula);
     public void delete(long id); 
+    public List<Pelicula> getPeliculasPorGenero(Genero genero);
+    
 }

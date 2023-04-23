@@ -4,6 +4,7 @@
  */
 package com.Saturno.Saturno.service;
 
+import com.Saturno.Saturno.entity.Genero;
 import com.Saturno.Saturno.entity.Pelicula;
 import com.Saturno.Saturno.repository.PeliculaRepository;
 import java.util.List;
@@ -37,6 +38,11 @@ public class PeliculaService implements IPeliculaService{
     @Override
     public void delete(long id) {
          peliculaRepository.deleteById(id);
+    }
+
+    @Override
+    public List<Pelicula> getPeliculasPorGenero(Genero genero) {
+       return peliculaRepository.findByGeneros(genero);
     }
     
 }
