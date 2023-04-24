@@ -73,6 +73,10 @@ public class Userprincipal implements UserDetails {
     public void setPeliculasFavoritas(List<Pelicula> peliculasFavoritas) {
         this.suscripcion.getUsuario().setPeliculasFavoritas(peliculasFavoritas);
     }
+    
+    public void setPassword(String password){
+        this.suscripcion.setContrasena(password);
+    }
 
     @Override
     public boolean isAccountNonExpired() {
@@ -93,5 +97,5 @@ public class Userprincipal implements UserDetails {
     public boolean isEnabled() {
         return this.suscripcion != null && this.suscripcion.getActive() == 1;
     }
-
+    
 }

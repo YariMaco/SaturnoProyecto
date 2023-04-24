@@ -16,7 +16,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             <div class = mitad1>
                 <div class="titulo">
                     <img class="meteoro" src="images/meteoro.png" alt="meteoro"/>
-                    <h1>Registro</h1>
+                    <h1 th:text="#{index.registro}"></h1>
                 </div>
                 <div class = registro>              
                     <form class = signup th:object ="${usuario}"
@@ -26,27 +26,27 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <input type="hidden" th:field="*{id}">
                         <input type="hidden" name="email" th:field="*{email}" value="${email}" />
                         <div class="TextField">
-                            <label  for="nickname">Usuario:</label>
+                            <label  for="nickname" th:text="#{index.usuario}"></label>
                             <input type="text" name="nickname" id="nickname" aria-describedby="emailHelp" required>
                         </div>
                         <div class="TextField">
-                            <label  for="nombre">Nombre:</label>
+                            <label  for="nombre" th:text="#{index.nombre}"></label>
                             <input type="text" th:field="*{nombre}" id="nombre" aria-describedby="emailHelp" required>
                         </div>
                         <div class="TextField">
-                            <label for="apellido1">Apellido:</label>
+                            <label for="apellido1" th:text="#{index.apellido}"></label>
                             <input type="text" th:field="*{apellido1}" id="apellido1" aria-describedby="emailHelp" required>
                         </div>
                         <div class="TextField">
-                            <label for="telefono">Telefono:</label>
+                            <label for="telefono" th:text="#{index.telefono}"></label>
                             <input type="number" th:field="*{telefono}" id="telefono" aria-describedby="emailHelp" required>
                         </div>
                         <div class="TextField">
-                            <label for="contrasena">Contraseña:</label>
+                            <label for="contrasena" th:text="#{index.contrasena}"></label>
                             <input type="password" name="contrasena" id="contrasena" aria-describedby="emailHelp" required>
                         </div>
                         <div class="TextField">
-                            <label for="contrasenaconfirm">Confirme Contraseña:</label>
+                            <label for="contrasenaconfirm" th:text="#{index.confirmContra}"></label>
                             <input type="password" name="contrasenaconfirm" id="contrasenaconfirm" aria-describedby="emailHelp" required>
                             <p th:if="${error}" class="error-message" th:text="${error}"></p>
                         </div>
@@ -70,5 +70,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <img class="logo" src="images/grande.png" alt="Logo"/>
             </div>
         </div>
+        <footer th:replace="plantilla/template::footer"></footer>
     </body>
 </html>
