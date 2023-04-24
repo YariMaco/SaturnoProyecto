@@ -29,10 +29,14 @@ public class UsuarioController {
     public String showMiCuenta() {
         return "miCuenta";
     }
+    
+    @GetMapping("/cambiosRealizados")
+    public String showCambios(){
+        return "cambiosExitosos";
+    }
 
     @GetMapping("/cuenta/cambioC")
     public String showCambioContrasena() {
-
         return "cambioContrasena";
     }
 
@@ -52,13 +56,13 @@ public class UsuarioController {
         usuarioService.saveUsuario(usuario.getUsuario());
         suscripcionService.saveSuscripcion(usuario);
 
-        return "redirect:/cuenta";
+        return "redirect:/cambiosRealizados";
     }
 
     @GetMapping("/cuenta/cambioContra")
     public String showCambioContrasena(@RequestParam("consulta") String consulta, @RequestParam("confirma") String confirma,
-            @RequestParam("confimarContrasenaActual") String confimarContrasenaActual, String contrasenaActual, Model model, Principal principal, 
-            @AuthenticationPrincipal Userprincipal loggeado) {
+            @RequestParam("confimarContrasenaActual") String confimarContrasenaActual, String contrasenaActual, 
+            Model model, Principal principal, @AuthenticationPrincipal Userprincipal loggeado) {
 
         Suscripcion usuario = suscripcionService.findByNickname(principal.getName());
         BCryptPasswordEncoder encoder = new BCryptPasswordEncoder();
@@ -76,7 +80,7 @@ public class UsuarioController {
             usuarioService.saveUsuario(usuario.getUsuario());
             suscripcionService.saveSuscripcion(usuario);
 
-            return "redirect:/cuenta";
+            return "redirect:/cambiosRealizados";
     }
 
 }
