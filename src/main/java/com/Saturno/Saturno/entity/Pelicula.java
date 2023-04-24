@@ -31,6 +31,7 @@ public class Pelicula implements Serializable {
     private String actores;
     private int score;
     private int ano;
+    private String youtubeid;
         
     @ManyToMany
     @JoinTable(
@@ -118,6 +119,14 @@ public class Pelicula implements Serializable {
 
     public void setDescripcion(String descripcion) {
         this.descripcion = descripcion;
+    }
+
+    public String getYoutubeid() {
+        return youtubeid;
+    }
+
+    public void setYoutubeid(String youtubeid) {
+        this.youtubeid = youtubeid;
     }
     
     

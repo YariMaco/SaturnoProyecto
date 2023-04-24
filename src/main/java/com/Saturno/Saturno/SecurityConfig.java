@@ -62,19 +62,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http.authorizeRequests()
-                .antMatchers("/index").permitAll() // Permitir acceso a todas las rutas sin autenticación
+                .antMatchers("/index").permitAll() 
                 .antMatchers("/vistaUsuario").hasAnyRole("ADMIN", "USER") // Requiere roles ADMIN o USUARIO
                 .antMatchers("/peli").hasRole("ADMIN") // Requiere rol ADMIN
                 .and()
                 .formLogin()
-                .loginPage("/login").permitAll() // Página de inicio de sesión y permitir acceso sin autenticación
+                .loginPage("/login").permitAll()
+                .defaultSuccessUrl("/vistaUsuario")// Página de inicio de sesión y permitir acceso sin autenticación
                 .and()
                 .logout()
                 .logoutUrl("/logout") // URL de la página de logout
-                .logoutSuccessUrl("/") // Página de éxito de logout
+                .logoutSuccessUrl("/") 
                 .and()
-                .csrf().disable() // Deshabilitar protección CSRF (Cross-Site Request Forgery)
-                .headers().frameOptions().disable(); // Deshabilitar protección de encabezados de frame
+                .csrf().disable()
+                .headers().frameOptions().disable(); 
     }
 
 }

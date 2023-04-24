@@ -42,6 +42,13 @@ public class Usuario implements Serializable {
             inverseJoinColumns = @JoinColumn(name = "pelicula_id")
     )
     private List<Pelicula> peliculasFavoritas;
+    @ManyToMany
+    @JoinTable(
+            name = "historial",
+            joinColumns = @JoinColumn(name = "usuario_id"),
+            inverseJoinColumns = @JoinColumn(name = "pelicula_id")
+    )
+    private List<Pelicula> historial;
 
     public long getId() {
         return id;
@@ -113,6 +120,22 @@ public class Usuario implements Serializable {
         }
         peliculasFavoritas.add(pelicula);
     }
+
+    public List<Pelicula> getHistorial() {
+        return historial;
+    }
+
+    public void setHistorial(List<Pelicula> historial) {
+        this.historial = historial;
+    }
+    public void agregarHistorial(Pelicula pelicula) {
+        if (historial == null) {
+            historial = new ArrayList<>();
+        }
+        historial.add(pelicula);
+    }
+
+    
 
     public List<String> getRoleList() {
         if (this.roles.length() > 0) {
