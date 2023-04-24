@@ -5,7 +5,9 @@
 package com.Saturno.Saturno.service;
 
 import com.Saturno.Saturno.entity.Pelicula;
+import com.Saturno.Saturno.entity.Plan;
 import com.Saturno.Saturno.entity.Suscripcion;
+import com.Saturno.Saturno.entity.Tarjeta;
 import java.util.Collection;
 import java.util.List;
 import java.util.ArrayList;
@@ -67,14 +69,31 @@ public class Userprincipal implements UserDetails {
         return this.suscripcion.getPlan().getNombre();
     }
 
-    public void setTelefono(int telefono) {
-        this.suscripcion.getUsuario().setTelefono(telefono);  
+    public Plan getPlan() {
+        return this.suscripcion.getPlan();
     }
+
+    public Tarjeta getTarjeta() {
+        return this.suscripcion.getTarjeta();
+    }
+
+    public void setPlan(Plan plan) {
+        this.suscripcion.setPlan(plan);
+    }
+
+    public void setTajeta(Tarjeta tarjeta) {
+        this.suscripcion.setTarjeta(tarjeta);
+    }
+
+    public void setTelefono(int telefono) {
+        this.suscripcion.getUsuario().setTelefono(telefono);
+    }
+
     public void setPeliculasFavoritas(List<Pelicula> peliculasFavoritas) {
         this.suscripcion.getUsuario().setPeliculasFavoritas(peliculasFavoritas);
     }
-    
-    public void setPassword(String password){
+
+    public void setPassword(String password) {
         this.suscripcion.setContrasena(password);
     }
 
@@ -97,5 +116,5 @@ public class Userprincipal implements UserDetails {
     public boolean isEnabled() {
         return this.suscripcion != null && this.suscripcion.getActive() == 1;
     }
-    
+
 }

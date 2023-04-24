@@ -8,28 +8,38 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <title>Mi Cuenta</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../css/cambioP.css"/>
+        <link rel="stylesheet" href="../css/cambioT2.css"/>
     </head>
     <body>
-        <form th:action="@{/cuenta/cambioPla}" method="get">
+        <form th:action="@{/cuenta/cambioTarje}" method="get">
             <div class="container">
                 <div class="objeto"> 
                     <div class="top">                 
-                        <h1>Cambiar plan</h1>
+                        <h1>Cambiar tarjeta</h1>
                     </div>
                     <div class="barras1"></div>
                     <div class="mitad">
                         <div class="mitad1"> 
                             <div class ="txt_field">
-                                <label for="">Seleccione el nuevo plan:</label>
-                                <br>
-                                <select name="idPlan">
-                                    <option th:each="plan : ${planes}" th:value="${plan.id}" th:text="${plan.nombre}"></option>
-                                </select>
+                                <label for="">Digite el nombre de la tarjeta:</label>
+                                <input type="text" name="nombret" />
+                            </div>
+                            <br>
+                            <div class ="txt_field">
+                                <label for="">Digite el número de la tarjeta:</label>
+                                <input type="number" name="numerot" />
                             </div>
                         </div>
-                        <div class="mitad2">                     
-                            <p>* Usted recibirá un correo de confirmación</p>
+                        <div class="mitad2">
+                            <div class ="txt_field">
+                                <label for="">Digite la fecha de expiración:</label>
+                                <input type="text" name="fechaex" />
+                            </div>
+                            <br>
+                            <div class ="txt_field">
+                                <label for="">Digite el código de seguridad:</label>
+                                <input type="number" name="codse" />
+                            </div>
                         </div>
                     </div>
                     <div class="barras2"></div>
