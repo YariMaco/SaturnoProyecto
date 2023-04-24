@@ -16,6 +16,7 @@ import java.util.List;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
+import javax.persistence.OrderBy;
 
 /**
  *
@@ -41,13 +42,16 @@ public class Usuario implements Serializable {
             joinColumns = @JoinColumn(name = "usuario_id"),
             inverseJoinColumns = @JoinColumn(name = "pelicula_id")
     )
+    @OrderBy("id DESC") 
     private List<Pelicula> peliculasFavoritas;
+    
     @ManyToMany
     @JoinTable(
             name = "historial",
             joinColumns = @JoinColumn(name = "usuario_id"),
             inverseJoinColumns = @JoinColumn(name = "pelicula_id")
     )
+    @OrderBy("id DESC") 
     private List<Pelicula> historial;
 
     public long getId() {
@@ -127,17 +131,6 @@ public class Usuario implements Serializable {
 
     public void setHistorial(List<Pelicula> historial) {
         this.historial = historial;
-    }
-    public void agregarHistorial(Pelicula pelicula) {
-        if (historial == null) {
-            historial = new ArrayList<>();
-        }
-        historial.add(pelicula);
-    }
-    public void removerFavorita(Pelicula pelicula) {
-        if (peliculasFavoritas != null) {
-            peliculasFavoritas.remove(pelicula);
-        }
     }
 
     

@@ -90,3 +90,44 @@ h1{
     color: #ccff33;
     border-bottom: solid gray 0.3vh;
 }
+.barras2{
+    margin-top: 1%;    
+    margin-bottom: 1%;
+    color: #ccff33;
+    border-bottom: solid gray 0.3vh;
+}
+ul {
+    list-style-type: none;
+    margin-left: 3%;
+    margin-right: 4%;
+}
+
+ul li {
+    list-style-type: none;
+    
+}
+.mitad1{
+     margin-right: 40px;
+     margin-top: 20px;
+    
+    
+}
+.titulo{
+    
+    font-size: 18px;
+    
+}
+.play{
+    background-color: #AEB73E;
+    color: #fff;
+    padding: 6px 22px;
+    margin-right: 25px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 18px;
+}
+.contenido{
+    display: flex;
+   
+}

@@ -102,23 +102,36 @@ public class PeliculaController {
         Suscripcion usuario = suscripcionService.findByNickname(principal.getName());
         Pelicula pelicula = peliculaService.getPeliculaById(id);
         if (usuario != null && pelicula != null) {
+            if (!usuario.getUsuario().getPeliculasFavoritas().contains(pelicula)) {
             usuario.getUsuario().agregarPeliculaFavorita(pelicula);
             usuarioService.saveUsuario(usuario.getUsuario());
             suscripcionService.saveSuscripcion(usuario);
+        }
         }
         return "redirect:/detalles/" + id;
     }
 
     @GetMapping("/eliminarFavorito/{id}")
-    public String removeFromFavorites(@PathVariable Long id, Principal principal) {
+    public String eliminarFavorito(@PathVariable Long id, Principal principal) {
         Suscripcion usuario = suscripcionService.findByNickname(principal.getName());
         Pelicula pelicula = peliculaService.getPeliculaById(id);
         if (usuario != null && pelicula != null) {
-            usuario.getUsuario().removerFavorita(pelicula); 
+            usuario.getUsuario().getPeliculasFavoritas().remove(pelicula);
             usuarioService.saveUsuario(usuario.getUsuario());
             suscripcionService.saveSuscripcion(usuario);
         }
         return "redirect:/peliculas/favoritas";
+    }
+    @GetMapping("/eliminarHistorial/{id}")
+    public String eliminarHistorial(@PathVariable Long id, Principal principal) {
+        Suscripcion usuario = suscripcionService.findByNickname(principal.getName());
+        Pelicula pelicula = peliculaService.getPeliculaById(id);
+        if (usuario != null && pelicula != null) {
+            usuario.getUsuario().getHistorial().remove(pelicula);
+            usuarioService.saveUsuario(usuario.getUsuario());
+            suscripcionService.saveSuscripcion(usuario);
+        }
+        return "redirect:/peliculas/historial";
     }
 
     @GetMapping("/reproducirPelicula/{id}")
@@ -127,7 +140,7 @@ public class PeliculaController {
         Suscripcion usuario = suscripcionService.findByNickname(principal.getName());
         model.addAttribute("pelicula", pelicula);
         if (usuario != null && pelicula != null) {
-            usuario.getUsuario().agregarHistorial(pelicula);
+            usuario.getUsuario().getHistorial().remove(pelicula);
             usuarioService.saveUsuario(usuario.getUsuario());
             suscripcionService.saveSuscripcion(usuario);
         }
@@ -139,7 +152,7 @@ public class PeliculaController {
         Suscripcion suscripcion = suscripcionService.findByNickname(principal.getName());
         Usuario usuario = suscripcion.getUsuario();
         List<Pelicula> peliculasFavoritas = usuario.getPeliculasFavoritas();
-        model.addAttribute("peliculasFavoritas", peliculasFavoritas);
+        model.addAttribute("pelicula", peliculasFavoritas);
         model.addAttribute("titulo","Mis Guardados");
         return "guardarP";
     }
@@ -151,7 +164,7 @@ public class PeliculaController {
         List<Pelicula> historial = usuario.getHistorial();
         model.addAttribute("historial", historial);
         model.addAttribute("titulo","Historial");
-        return "guardarP";
+        return "historial";
     }
 
     @PostMapping("/guardarPelicula")

@@ -17,26 +17,39 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
     </head>
     <body>
+        <header th:replace="plantilla2/template::header"></header>
+        <h1 th:text="${pelicula.titulo}"></h1>
 
-        <div class="mitad2">             
-            <h1 th:text="${pelicula.titulo}"></h1>
-            <img class="card-text" th:src="${pelicula.rutaimagen}">
-            <p th:text="${pelicula.duracion}"></p>
-            <p th:text="${pelicula.ano}"></p>
-            <p th:text="${pelicula.descripcion}"></p>
-            <p th:text="${pelicula.director}"></p>
-            <p th:text="${pelicula.actores}"></p>
-            <p>Género:</p>
-            <ul>
-                <li th:each="genero : ${pelicula.generos}" th:text="${genero.nombre}"></li>
-            </ul>
-            <p th:text="${pelicula.score}"></p>
+        <div class="container">    
 
-            <a  th:href="@{/reproducirPelicula/{id}(id=${pelicula.id})}">PLAY</a>
-            <a  th:href="@{/guardarPelicula/{id}(id=${pelicula.id})}">Guardar</a>
-
-
+            <div class="mitad1"> 
+                <div class="mi"> 
+                <img class="imagen" th:src="${pelicula.rutaimagen}">
+                </div>
+                <div class="mita"> 
+                <a class="play"  th:href="@{/reproducirPelicula/{id}(id=${pelicula.id})}">Play <i class="material-icons-outlined" style="font-size:34px;color:white;vertical-align: middle;">play_circle</i></a>
+                <a  class ="guarda" th:href="@{/guardarPelicula/{id}(id=${pelicula.id})}"><i class="material-icons-outlined" style="font-size:34px;color:#AEB73E;vertical-align: middle;">bookmark    </i></a>
+                </div>
+            </div>
+            <div class="mitad2"> 
+                <span><i class="material-icons-outlined" style="font-size:26px;color:white;vertical-align: middle;">schedule</i></span> <span th:text="${pelicula.duracion}"></span>
+                <p>Año:</span> <span th:text="${pelicula.ano}"></p>
+                <p th:text="${pelicula.descripcion}"></p>
+                <p>Directores:</p>
+                <p th:text="${pelicula.director}"></p>
+                <p>Actores:</p>
+                <p th:text="${pelicula.actores}"></p>
+                <p>Género:</p>
+                <ul>
+                    <li th:each="genero : ${pelicula.generos}" th:text="${genero.nombre}"></li>
+                </ul>
+                <p>Calificación en Rotten Tomatoes:</p>
+                <p th:text="${pelicula.score}"></p>
+            </div>
         </div>
+
+
+
 
 
     </body>
