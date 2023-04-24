@@ -69,9 +69,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                 .loginPage("/login").permitAll() // Página de inicio de sesión y permitir acceso sin autenticación
                 .and()
+                .logout()
+                .logoutUrl("/logout") // URL de la página de logout
+                .logoutSuccessUrl("/") // Página de éxito de logout
+                .and()
                 .csrf().disable() // Deshabilitar protección CSRF (Cross-Site Request Forgery)
                 .headers().frameOptions().disable(); // Deshabilitar protección de encabezados de frame
     }
-
 
 }
