@@ -39,10 +39,9 @@ public class PeliculaController {
     private IGeneroService generoService;
     @Autowired
     private ISuscripcionService suscripcionService;
-    @Autowired  
+    @Autowired
     private IUsuarioService usuarioService;
-    
-    
+
     @GetMapping("/peli")
     public String mostrarPelis(Model model) {
         List<Pelicula> pelicula = peliculaService.getALLPelicula();
@@ -93,32 +92,36 @@ public class PeliculaController {
 
     @GetMapping("/detalles/{idPelicula}")
     public String verMas(@PathVariable("idPelicula") Long idPelicula, Model model) {
-        Pelicula pelicula = peliculaService.getPeliculaById(idPelicula);        
+        Pelicula pelicula = peliculaService.getPeliculaById(idPelicula);
         model.addAttribute("pelicula", pelicula);
         return "detalles";
     }
-    
+
     @GetMapping("/guardarPelicula/{id}")
     public String addToFavorites(@PathVariable Long id, Principal principal) {
-        Suscripcion usuario = suscripcionService.findByNickname(principal.getName()); 
+        Suscripcion usuario = suscripcionService.findByNickname(principal.getName());
         Pelicula pelicula = peliculaService.getPeliculaById(id);
         if (usuario != null && pelicula != null) {
             usuario.getUsuario().agregarPeliculaFavorita(pelicula);
             usuarioService.saveUsuario(usuario.getUsuario());
-            suscripcionService.saveSuscripcion(usuario); 
+            suscripcionService.saveSuscripcion(usuario);
         }
-
-        return "redirect:/peliculas/favoritas"; 
+        return "redirect:/detalles/"+id;
     }
     
+    @GetMapping("/reproducirPelicula/{id}")
+    public String reproducirVideo(@PathVariable Long id,Model model, Principal principal) {
+        Pelicula pelicula = peliculaService.getPeliculaById(id);
+        Suscripcion usuario = suscripcionService.findByNickname(principal.getName());
+        model.addAttribute("pelicula", pelicula);
+        if (usuario != null && pelicula != null) {
+            usuario.getUsuario().agregarHistorial(pelicula);
+            usuarioService.saveUsuario(usuario.getUsuario());
+            suscripcionService.saveSuscripcion(usuario);
+        }
+        return "reproductor"; 
+    }
 
-//    @PostMapping("/guardarPelicula")
-//    public String guardarPelicula(@AuthenticationPrincipal Suscripcion usuario) {
-//            List<Pelicula> peliculasFavoritas = usuario.getUsuario().getPeliculasFavoritas();
-//            usuarioService.actualizarPeliculasFavoritas(usuario.getUsuario(), peliculasFavoritas);
-//            return "redirect:/confirmacion";
-//
-//    }
     @GetMapping("/peliculas/favoritas")
     public String mostrarGuardados(Principal principal, Model model) {
         Suscripcion suscripcion = suscripcionService.findByNickname(principal.getName()); // Assuming the logged-in user's email is used as the user identifier
@@ -126,6 +129,15 @@ public class PeliculaController {
         List<Pelicula> peliculasFavoritas = usuario.getPeliculasFavoritas();
         model.addAttribute("peliculasFavoritas", peliculasFavoritas);
         return "guardarP";
+    }
+    
+    @GetMapping("/peliculas/historial")
+    public String mostrarHistorial(Principal principal, Model model) {
+        Suscripcion suscripcion = suscripcionService.findByNickname(principal.getName()); // Assuming the logged-in user's email is used as the user identifier
+        Usuario usuario = suscripcion.getUsuario();
+        List<Pelicula> historial = usuario.getHistorial();
+        model.addAttribute("historial", historial);
+        return "historial";
     }
 
     @PostMapping("/guardarPelicula")
@@ -137,6 +149,7 @@ public class PeliculaController {
             @RequestParam("director") String director,
             @RequestParam("actores") String actores,
             @RequestParam("score") Integer score,
+            @RequestParam("youtubeid") String youtubeid,
             @RequestParam("ano") Integer ano,
             @RequestParam("generos") List<Long> generos) {
 
@@ -155,6 +168,7 @@ public class PeliculaController {
                 pelicula.setActores(actores);
                 pelicula.setScore(score);
                 pelicula.setAno(ano);
+                pelicula.setYoutubeid(youtubeid); // Establecer la ID del video de YouTube
                 pelicula.setGeneros(generoService.getGenerosById(generos));
                 peliculaService.savePelicula(pelicula);
 
@@ -166,5 +180,6 @@ public class PeliculaController {
         }
         return "redirect:/peli";
     }
+
 
 }

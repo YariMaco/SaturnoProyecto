@@ -32,7 +32,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             </ul>
             <p th:text="${pelicula.score}"></p>
 
-            <a href="home">PLAY</a>
+            <a  th:href="@{/reproducirPelicula/{id}(id=${pelicula.id})}">PLAY</a>
             <a  th:href="@{/guardarPelicula/{id}(id=${pelicula.id})}">Guardar</a>
 
 
