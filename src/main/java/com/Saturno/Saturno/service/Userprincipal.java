@@ -70,6 +70,10 @@ public class Userprincipal implements UserDetails {
         this.suscripcion.getUsuario().setTelefono(telefono);
 
     }
+    
+    public void setPassword(String password){
+        this.suscripcion.setContrasena(password);
+    }
 
     @Override
     public boolean isAccountNonExpired() {
@@ -90,5 +94,5 @@ public class Userprincipal implements UserDetails {
     public boolean isEnabled() {
         return this.suscripcion != null && this.suscripcion.getActive() == 1;
     }
-
+    
 }

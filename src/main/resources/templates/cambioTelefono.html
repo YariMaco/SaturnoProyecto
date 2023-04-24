@@ -11,30 +11,32 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <link rel="stylesheet" href="../css/cambioT.css"/>
     </head>
     <body>
-        <div class="container">
-            <div class="objeto"> 
-                <div class="top">                 
-                    <h1>Cambiar número telefónico</h1>
-                </div>
-                <div class="barras1"></div>
-                <div class="mitad">
-                    <div class="mitad1"> 
-                        <div class ="txt_field">
-                            <label for="">Digite el nuevo número telefónico</label>
-                            <!-- <input type="" id="" th:field="*{}" />  -->        
+        <form th:action="@{/cuenta/cambioTele}" method="get">
+            <div class="container">
+                <div class="objeto"> 
+                    <div class="top">                 
+                        <h1>Cambiar número telefónico</h1>
+                    </div>
+                    <div class="barras1"></div>
+                    <div class="mitad">
+                        <div class="mitad1"> 
+                            <div class ="txt_field">
+                                <label for="">Digite el nuevo número telefónico</label>
+                                <input type="number" name="consulta" />
+                            </div>
+                            </form>
                         </div>
-
+                        <div class="mitad2">                     
+                            <p>* Usted recibirá un correo de confirmación</p>
+                        </div>
                     </div>
-                    <div class="mitad2">                     
-                        <p>* Usted recibirá un correo de confirmación</p>
+                    <div class="barras2"></div>
+                    <div class="bottom">
+                        <button type="submit">Cancelar</button>
+                        <button type="submit">Continuar</button> 
                     </div>
-                </div>
-                <div class="barras2"></div>
-                <div class="bottom">
-                    <button type="submit">Cancelar</button>
-                    <button type="submit">Continuar</button> 
                 </div>
             </div>
-        </div>
+        </form>
     </body>
 </html>

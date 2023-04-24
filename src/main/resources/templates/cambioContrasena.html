@@ -10,42 +10,46 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <link rel="stylesheet" href="../css/cambioC.css"/>
     </head>
-    
-    <body>
-        <div class="container">
-            <div class="objeto"> 
-                <div class="top">                 
-                    <h1>Crear una nueva contraseña</h1>
-                </div>
-                <div class="barras1"></div>
-                <div class="mitad">
-                    <div class="mitad1"> 
-                        <div class ="txt_field">
-                            <label for="">Escriba la contraseña actual</label>
-                            <!-- <input type="" id="" th:field="*{}" />  -->
-                        </div>
-                        <p>* La contraseña debe tener <br> mínimo 8 caracteres e incluir <br> letras,
-                          números y símbolos</p>
 
+    <body>
+        <form th:action="@{/cuenta/cambioContra}" method="get">
+            <div class="container">
+                <div class="objeto"> 
+                    <div class="top">                 
+                        <h1>Crear una nueva contraseña</h1>
                     </div>
-                    <div class="mitad2">
-                        <div class ="txt_field">
-                            <label for="">Escriba la nueva contraseña</label>
-                            <!-- <input type="" id="" th:field="*{}" />  -->   
+                    <div class="barras1"></div>
+                    <div class="mitad">
+                        <div class="mitad1"> 
+                            <div class ="txt_field">
+                                <label for="">Escriba la contraseña actual</label>
+                                <input type="text" name="confimarContrasenaActual" />
+                            </div>
+                            <p>* La contraseña debe tener <br> mínimo 8 caracteres e incluir <br> letras,
+                                números y símbolos</p>
+
                         </div>
-                        <br>
-                        <div class ="txt_field">
-                            <label for="">Vuelva a digitar la contraseña</label>
-                            <!-- <input type="" id="" th:field="*{}" /> -->
+                        <div class="mitad2">
+
+                            <div class ="txt_field">
+                                <label for="">Escriba la nueva contraseña</label>
+                                <input type="text" name="consulta" />
+                            </div>
+                            <br>
+                            <div class ="txt_field">
+                                <label for="">Vuelva a digitar la contraseña</label>
+                                <input type="text" name="confirma" />
+                                <p th:if="${error}" class="error-message" th:text="${error}"></p>
+                            </div>
                         </div>
                     </div>
-                </div>
-                <div class="barras2"></div>
-                <div class="bottom">
-                    <button type="submit">Cancelar</button>
-                    <button type="submit">Continuar</button> 
+                    <div class="barras2"></div>
+                    <div class="bottom">
+                        <button type="submit">Cancelar</button>
+                        <button type="submit">Continuar</button> 
+                    </div>
                 </div>
             </div>
-        </div>
+        </form>
     </body>
 </html>
