@@ -6,7 +6,6 @@ package com.Saturno.Saturno.controller;
 
 import com.Saturno.Saturno.entity.Plan;
 import com.Saturno.Saturno.entity.Suscripcion;
-import com.Saturno.Saturno.entity.Tarjeta;
 import com.Saturno.Saturno.service.IPlanService;
 import com.Saturno.Saturno.service.ISuscripcionService;
 import com.Saturno.Saturno.service.ITarjetaService;
@@ -20,7 +19,6 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @Controller
