@@ -134,6 +134,11 @@ public class Usuario implements Serializable {
         }
         historial.add(pelicula);
     }
+    public void removerFavorita(Pelicula pelicula) {
+        if (peliculasFavoritas != null) {
+            peliculasFavoritas.remove(pelicula);
+        }
+    }
 
     
 

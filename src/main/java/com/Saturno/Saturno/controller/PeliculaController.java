@@ -106,11 +106,23 @@ public class PeliculaController {
             usuarioService.saveUsuario(usuario.getUsuario());
             suscripcionService.saveSuscripcion(usuario);
         }
-        return "redirect:/detalles/"+id;
+        return "redirect:/detalles/" + id;
     }
-    
+
+    @GetMapping("/eliminarFavorito/{id}")
+    public String removeFromFavorites(@PathVariable Long id, Principal principal) {
+        Suscripcion usuario = suscripcionService.findByNickname(principal.getName());
+        Pelicula pelicula = peliculaService.getPeliculaById(id);
+        if (usuario != null && pelicula != null) {
+            usuario.getUsuario().removerFavorita(pelicula); 
+            usuarioService.saveUsuario(usuario.getUsuario());
+            suscripcionService.saveSuscripcion(usuario);
+        }
+        return "redirect:/peliculas/favoritas";
+    }
+
     @GetMapping("/reproducirPelicula/{id}")
-    public String reproducirVideo(@PathVariable Long id,Model model, Principal principal) {
+    public String reproducirVideo(@PathVariable Long id, Model model, Principal principal) {
         Pelicula pelicula = peliculaService.getPeliculaById(id);
         Suscripcion usuario = suscripcionService.findByNickname(principal.getName());
         model.addAttribute("pelicula", pelicula);
@@ -119,25 +131,27 @@ public class PeliculaController {
             usuarioService.saveUsuario(usuario.getUsuario());
             suscripcionService.saveSuscripcion(usuario);
         }
-        return "reproductor"; 
+        return "reproductor";
     }
 
     @GetMapping("/peliculas/favoritas")
     public String mostrarGuardados(Principal principal, Model model) {
-        Suscripcion suscripcion = suscripcionService.findByNickname(principal.getName()); // Assuming the logged-in user's email is used as the user identifier
+        Suscripcion suscripcion = suscripcionService.findByNickname(principal.getName());
         Usuario usuario = suscripcion.getUsuario();
         List<Pelicula> peliculasFavoritas = usuario.getPeliculasFavoritas();
         model.addAttribute("peliculasFavoritas", peliculasFavoritas);
+        model.addAttribute("titulo","Mis Guardados");
         return "guardarP";
     }
-    
+
     @GetMapping("/peliculas/historial")
     public String mostrarHistorial(Principal principal, Model model) {
-        Suscripcion suscripcion = suscripcionService.findByNickname(principal.getName()); // Assuming the logged-in user's email is used as the user identifier
+        Suscripcion suscripcion = suscripcionService.findByNickname(principal.getName());
         Usuario usuario = suscripcion.getUsuario();
         List<Pelicula> historial = usuario.getHistorial();
         model.addAttribute("historial", historial);
-        return "historial";
+        model.addAttribute("titulo","Historial");
+        return "guardarP";
     }
 
     @PostMapping("/guardarPelicula")
@@ -168,7 +182,7 @@ public class PeliculaController {
                 pelicula.setActores(actores);
                 pelicula.setScore(score);
                 pelicula.setAno(ano);
-                pelicula.setYoutubeid(youtubeid); // Establecer la ID del video de YouTube
+                pelicula.setYoutubeid(youtubeid);
                 pelicula.setGeneros(generoService.getGenerosById(generos));
                 peliculaService.savePelicula(pelicula);
 
@@ -180,6 +194,5 @@ public class PeliculaController {
         }
         return "redirect:/peli";
     }
-
 
 }

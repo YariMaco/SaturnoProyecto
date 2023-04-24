@@ -36,7 +36,7 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <div class="dropdown-content">
                         <a th:href="@{/cuenta}" th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}">Mi Cuenta</a>
                         <a th:href="@{/peliculas/favoritas}" th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}">Favoritos</a>
-                        <a href="#" th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}">Historial</a>
+                        <a href="/peliculas/historial" th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}">Historial</a>
                         <a th:href="@{/peliculaN}" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">Agregar Película</a>
                         <a th:href="@{/lista}" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">Lista de Películas</a>
                         <a th:href="@{/logout}">Logout</a>
@@ -59,9 +59,9 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <hr style="border-color: #707070;">
                         <li style="margin-bottom: 10px;"><a th:href="@{/verlista/{id}(id=${4})}"style="text-decoration: none; color: #fff; font-size: 20px;">Ciencia ficción</a></li>
                         <hr style="border-color: #707070;">
-                        <li style="margin-bottom: 10px;"><a th:href="@{/verlista/{id}(id=${11})}" style="text-decoration: none; color: #fff; font-size: 20px;">Terror</a></li>
+                        <li style="margin-bottom: 10px;"><a th:href="@{verlista/11}"sstyle="text-decoration: none; color: #fff; font-size: 20px;">Terror</a></li>
                         <hr style="border-color: #707070;">
-                        <li style="margin-bottom: 10px;"><a th:href="@{/verlista/{id}(id=${7})}"style="text-decoration: none; color: #fff; font-size: 20px;">Drama</a></li>
+                        <li style="margin-bottom: 10px;"><a th:href="@{verlista/7}"style="text-decoration: none; color: #fff; font-size: 20px;">Drama</a></li>
                     </ul>
                 </div>
             </div>

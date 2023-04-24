@@ -30,8 +30,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     </a>
                     <div class="dropdown-content">
                         <a th:href="@{/cuenta}" th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}">Mi Cuenta</a>
-                        <a href="#" th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}">Favoritos</a>
-                        <a href="#" th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}">Historial</a>
+                        <a th:href="@{/peliculas/favoritas}" th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}">Favoritos</a>
+                        <a href="/peliculas/historial" th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}">Historial</a>
                         <a th:href="@{/peliculaN}" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">Agregar Película</a>
                         <a th:href="@{/lista}" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">Lista de Películas</a>
                         <a th:href="@{/logout}">Logout</a>

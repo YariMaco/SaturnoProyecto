@@ -2,7 +2,10 @@ body{
     background: rgb(72,35,82);
     background: linear-gradient(0deg, rgba(72,35,82,1) 0%, rgba(17,12,17,1) 100%);
     height: 100vh;
-    overflow: hidden;
+    overflow: auto;
+    margin: 0px;
+    font-family: 'Open Sans', sans-serif;
+    color: #fff;
 }
 .navbar{
     height: 10vh;
@@ -69,86 +72,21 @@ nav ul li i {
 .dropdown:hover .dropbtn {
     background-color: #3e8e41;
 }
-
-.movie {
-    clear: both;
-    margin-bottom: 10px;
-}
-.movie img {
-    float: left;
-    margin-right: 30px;
-    margin-left: 30px;
-    width: 97px;
-    height: 122px;
-
-}
-.movie .info {
-    display: inline-block;
-}
-.movie-list h1 {
-    color: #B5C03D;
-    font-size: 36px;
-    font-weight: bold;
-    margin-right: 30px;
-    margin-left: 30px;
-    margin-bottom: 0;
+h1{
+    font-size: 250%;
+    font-weight: 500;
+    margin-top: 0.5%;
+    margin-left: 5%;
+    margin-right: 7%;
+    color: #ccff33;
+    margin-bottom: 0.5rem;
 }
 
-.movie h2{
-    color: #B5C03D;
+.barras1{
+    margin-top: 1%;
+    margin-left: 5%;
+    margin-right: 5%;
+    margin-bottom: 1%;
+    color: #ccff33;
+    border-bottom: solid gray 0.3vh;
 }
-
-.movie p{
-    color: #B5C03D;
-}
-
-
-.movie-list hr {
-    border: 1px solid #B5C03D;
-    margin-right: 30px;
-    margin-left: 30px;
-    margin-bottom: 30px;
-    margin-top: 0px;
-
-}
-
-.movie:after{
-    content: "";
-    display: block;
-    margin: 30px;
-    border-bottom: 1px solid #B5C03D;
-}
-
-/*.movie-list:after {
-  content: "";
-  display: block;
-  
-  border-bottom: 1px solid #B5C03D;
-  
-}*/
-
-.button-container img{
-    width: 20px;
-    height: 20px;
-    align-items: center;
-    margin-right: 8px;
-}
-
-.button-container button{
-    background-color: #B5C03D;
-    border-color: #B5C03D;
-    width: 80px;
-    height: 40px;
-    padding: 8px 16px;
-    font-size: 16px;
-    border: none;
-    cursor: pointer;
-}
-
-.button-container button:hover{
-    background-color: gray;
-
-}
-
-
-
