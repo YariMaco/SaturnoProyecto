@@ -22,25 +22,27 @@
             <div class="barras1"></div>
 
             <ul>
-                <li th:each="pelicula : ${historial}">
-                    <div class = contenido>
-                        <div class = mitad1>
-                            <img class="card-text" th:src="${pelicula.getRutaimagen}" width="200">
+                <li th:each="i : ${#numbers.sequence(historial.size() - 1, 0, -1)}">
+                    <div class="contenido">
+                        <div class="mitad1">
+                            <img class="card-text" th:src="${historial[i].getRutaimagen}" width="200">
                         </div>
-                        <div class = mitad2>
-                            <p class ="titulo">
-                            <span th:text="${pelicula.titulo}"> </span> (<span th:text="${pelicula.getAno}"></span>)</p>
-                            <p class="texto" th:text="${pelicula.descripcion}"></p>
-                            <a  class = "play" th:href="@{/reproducirPelicula/{id}(id=${pelicula.id})}">Play</a>                    
-                            <a class = "play" th:href="@{/detalles/{id}(id=${pelicula.id})}">info</a>
-                            <a th:href="@{/eliminarHistorial/{id}(id=${pelicula.getId})}"><i class="fa fa-trash-o" style="font-size:26px;color:#AEB73E;vertical-align: middle;"></i></a>  
+                        <div class="mitad2">
+                            <p class="titulo">
+                                <span th:text="${historial[i].titulo}"> </span> (<span th:text="${historial[i].getAno}"></span>)
+                            </p>
+                            <p class="texto" th:text="${historial[i].descripcion}"></p>
+                            <a class="play" th:href="@{/reproducirPelicula/{id}(id=${historial[i].id})}">Play</a>
+                            <a class="play" th:href="@{/detalles/{id}(id=${historial[i].id})}">info</a>
+                            <a th:href="@{/eliminarHistorial/{id}(id=${historial[i].id})}">
+                                <i class="fa fa-trash-o" style="font-size:26px;color:#AEB73E;vertical-align: middle;"></i>
+                            </a>
                         </div>
                     </div>
-
                     <div class="barras2"></div>
-
-                </li>           
+                </li>
             </ul>
+
 
         </div>
 

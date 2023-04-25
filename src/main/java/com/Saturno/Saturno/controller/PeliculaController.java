@@ -103,7 +103,7 @@ public class PeliculaController {
         Pelicula pelicula = peliculaService.getPeliculaById(id);
         if (usuario != null && pelicula != null) {
             if (!usuario.getUsuario().getPeliculasFavoritas().contains(pelicula)) {
-            usuario.getUsuario().agregarPeliculaFavorita(pelicula);
+            usuario.getUsuario().getPeliculasFavoritas().add(pelicula);
             usuarioService.saveUsuario(usuario.getUsuario());
             suscripcionService.saveSuscripcion(usuario);
         }
@@ -111,20 +111,6 @@ public class PeliculaController {
         return "redirect:/detalles/" + id;
     }
     
-    @GetMapping("/guardarHistorial/{id}")
-    public String addToHistorial(@PathVariable Long id, Principal principal) {
-        Suscripcion usuario = suscripcionService.findByNickname(principal.getName());
-        Pelicula pelicula = peliculaService.getPeliculaById(id);
-        if (usuario != null && pelicula != null) {
-            if (!usuario.getUsuario().getHistorial().contains(pelicula)) {
-            usuario.getUsuario().getHistorial().add(pelicula);
-            usuarioService.saveUsuario(usuario.getUsuario());
-            suscripcionService.saveSuscripcion(usuario);
-        }
-        }
-        return "redirect:/detalles/" + id;
-    }
-
     @GetMapping("/eliminarFavorito/{id}")
     public String eliminarFavorito(@PathVariable Long id, Principal principal) {
         Suscripcion usuario = suscripcionService.findByNickname(principal.getName());
@@ -155,7 +141,9 @@ public class PeliculaController {
         model.addAttribute("pelicula", pelicula);
         if (usuario != null && pelicula != null) {
             usuario.getUsuario().getHistorial().remove(pelicula);
-            usuarioService.saveUsuario(usuario.getUsuario());
+            usuario.getUsuario().getHistorial().add(pelicula);
+            
+            usuarioService.saveUsuario(usuario.getUsuario());            
             suscripcionService.saveSuscripcion(usuario);
         }
         return "reproductor";

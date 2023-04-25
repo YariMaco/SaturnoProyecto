@@ -4,7 +4,6 @@
  */
 package com.Saturno.Saturno.service;
 
-import com.Saturno.Saturno.entity.Pelicula;
 import com.Saturno.Saturno.entity.Usuario;
 import com.Saturno.Saturno.repository.UsuarioRepository;
 import java.util.List;
@@ -41,11 +40,6 @@ public class UsuarioService implements IUsuarioService {
         return usuario != null;    
     } 
 
-    @Override
-    public void actualizarPeliculasFavoritas(Usuario usuario, List<Pelicula> peliculasFavoritas) {
-        usuario.setPeliculasFavoritas(peliculasFavoritas);     
-        usuarioRepository.save(usuario);
-    }
-    
+ 
 
 }
