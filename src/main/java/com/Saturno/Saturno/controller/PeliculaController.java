@@ -21,6 +21,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
@@ -103,14 +104,14 @@ public class PeliculaController {
         Pelicula pelicula = peliculaService.getPeliculaById(id);
         if (usuario != null && pelicula != null) {
             if (!usuario.getUsuario().getPeliculasFavoritas().contains(pelicula)) {
-            usuario.getUsuario().getPeliculasFavoritas().add(pelicula);
-            usuarioService.saveUsuario(usuario.getUsuario());
-            suscripcionService.saveSuscripcion(usuario);
-        }
+                usuario.getUsuario().getPeliculasFavoritas().add(pelicula);
+                usuarioService.saveUsuario(usuario.getUsuario());
+                suscripcionService.saveSuscripcion(usuario);
+            }
         }
         return "redirect:/detalles/" + id;
     }
-    
+
     @GetMapping("/eliminarFavorito/{id}")
     public String eliminarFavorito(@PathVariable Long id, Principal principal) {
         Suscripcion usuario = suscripcionService.findByNickname(principal.getName());
@@ -122,6 +123,7 @@ public class PeliculaController {
         }
         return "redirect:/peliculas/favoritas";
     }
+
     @GetMapping("/eliminarHistorial/{id}")
     public String eliminarHistorial(@PathVariable Long id, Principal principal) {
         Suscripcion usuario = suscripcionService.findByNickname(principal.getName());
@@ -142,8 +144,8 @@ public class PeliculaController {
         if (usuario != null && pelicula != null) {
             usuario.getUsuario().getHistorial().remove(pelicula);
             usuario.getUsuario().getHistorial().add(pelicula);
-            
-            usuarioService.saveUsuario(usuario.getUsuario());            
+
+            usuarioService.saveUsuario(usuario.getUsuario());
             suscripcionService.saveSuscripcion(usuario);
         }
         return "reproductor";
@@ -155,7 +157,7 @@ public class PeliculaController {
         Usuario usuario = suscripcion.getUsuario();
         List<Pelicula> peliculasFavoritas = usuario.getPeliculasFavoritas();
         model.addAttribute("pelicula", peliculasFavoritas);
-        model.addAttribute("titulo","Mis Guardados");
+        model.addAttribute("titulo", "Mis Guardados");
         return "guardarP";
     }
 
@@ -165,49 +167,58 @@ public class PeliculaController {
         Usuario usuario = suscripcion.getUsuario();
         List<Pelicula> historial = usuario.getHistorial();
         model.addAttribute("historial", historial);
-        model.addAttribute("titulo","Historial");
+        model.addAttribute("titulo", "Historial");
         return "historial";
     }
 
     @PostMapping("/guardarPelicula")
-    public String guardarPelicula(
-            @RequestParam("titulo") String titulo,
-            @RequestParam("duracion") String duracion,
-            @RequestParam("descripcion") String descripcion,
-            @RequestParam("rutaimagen") MultipartFile rutaimagen,
-            @RequestParam("director") String director,
-            @RequestParam("actores") String actores,
-            @RequestParam("score") Integer score,
-            @RequestParam("youtubeid") String youtubeid,
-            @RequestParam("ano") Integer ano,
-            @RequestParam("generos") List<Long> generos) {
+    public String guardarPelicula(@ModelAttribute Pelicula pelicula,
+            @RequestParam("imagen") MultipartFile multipartFile) throws IOException {
 
-        if (!rutaimagen.isEmpty()) {
+        Pelicula peliculaExistente = peliculaService.getPeliculaById(pelicula.getId());
+        if (!multipartFile.isEmpty()) {
             try {
-
-                byte[] bytes = rutaimagen.getBytes();
-                java.nio.file.Path path = Paths.get("src/main/resources/static/images1/" + rutaimagen.getOriginalFilename());
+                byte[] bytes = multipartFile.getBytes();
+                java.nio.file.Path path = Paths.get("src/main/resources/static/images1/" + multipartFile.getOriginalFilename());
                 Files.write(path, bytes);
-                Pelicula pelicula = new Pelicula();
-                pelicula.setTitulo(titulo);
-                pelicula.setDuracion(duracion);
-                pelicula.setDescripcion(descripcion);
-                pelicula.setRutaimagen("/images1/" + rutaimagen.getOriginalFilename());
-                pelicula.setDirector(director);
-                pelicula.setActores(actores);
-                pelicula.setScore(score);
-                pelicula.setAno(ano);
-                pelicula.setYoutubeid(youtubeid);
-                pelicula.setGeneros(generoService.getGenerosById(generos));
-                peliculaService.savePelicula(pelicula);
-
-                return "redirect:/peli";
+                pelicula.setRutaimagen("/images1/" + multipartFile.getOriginalFilename());
             } catch (IOException e) {
                 e.printStackTrace();
             }
         } else {
+            pelicula.setRutaimagen(peliculaExistente.getRutaimagen());
         }
+        peliculaService.savePelicula(pelicula);
         return "redirect:/peli";
+    }
+
+//    @PostMapping("/guardarPelicula")
+//    public String guardarPelicula(@ModelAttribute Pelicula pelicula,
+//            @RequestParam("imagen") MultipartFile multipartFile) throws IOException {
+//
+//        if (!multipartFile.isEmpty()) {
+//            try {
+//                byte[] bytes = multipartFile.getBytes();
+//                java.nio.file.Path path = Paths.get("src/main/resources/static/images1/" + multipartFile.getOriginalFilename());
+//                Files.write(path, bytes);
+//                pelicula.setRutaimagen("/images1/" + multipartFile.getOriginalFilename());
+//                peliculaService.savePelicula(pelicula);
+//                return "redirect:/peli";
+//            } catch (IOException e) {
+//                e.printStackTrace();
+//            }
+//        } else {
+//            peliculaService.savePelicula(pelicula);
+//        }
+//        return "redirect:/peli";
+//    }
+    @GetMapping("/editPelicula/{id}")//Edit Completo
+    public String editarPelicula(@PathVariable("id") Long idPelicula, Model model) {
+        Pelicula pelicula = peliculaService.getPeliculaById(idPelicula);
+        List<Genero> listaGeneros = generoService.listGenero();
+        model.addAttribute("pelicula", pelicula);
+        model.addAttribute("generos", listaGeneros);
+        return "agregarPeli";
     }
 
 }

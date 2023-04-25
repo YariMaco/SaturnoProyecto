@@ -10,7 +10,15 @@ body{
     display: flex;
     background: rgba(17, 14, 14,.86);
 }
-
+h1{
+        font-size: 250%;
+    font-weight: 500;
+    margin-top: 0.5%;
+    margin-left: 5%;
+    margin-right: 7%;
+    color: #ccff33;
+    margin-bottom: 0.5rem;
+}
 .logo{
 
     width: 140px;
