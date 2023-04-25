@@ -8,6 +8,12 @@ body{
     display: flex;
     height: 100vh;
 }
+.error-message {
+    color: #FFA500;
+    padding: 5px;
+    margin-top: 8px;
+    font-size: 14px;
+}
 .mitad1{
     height: 100%;
     width: 50%;

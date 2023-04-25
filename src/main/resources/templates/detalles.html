@@ -24,11 +24,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
 
             <div class="mitad1"> 
                 <div class="mi"> 
-                <img class="imagen" th:src="${pelicula.rutaimagen}">
+                    <img class="imagen" th:src="${pelicula.rutaimagen}">
                 </div>
                 <div class="mita"> 
-                <a class="play"  th:href="@{/reproducirPelicula/{id}(id=${pelicula.id})}">Play <i class="material-icons-outlined" style="font-size:34px;color:white;vertical-align: middle;">play_circle</i></a>
-                <a  class ="guarda" th:href="@{/guardarPelicula/{id}(id=${pelicula.id})}"><i class="material-icons-outlined" style="font-size:34px;color:#AEB73E;vertical-align: middle;">bookmark    </i></a>
+                    <a class="play"  th:href="@{/reproducirPelicula/{id}(id=${pelicula.id})}">Play <i class="material-icons-outlined" style="font-size:34px;color:white;vertical-align: middle;">play_circle</i></a>
+                    <a  class ="guarda" th:href="@{/guardarPelicula/{id}(id=${pelicula.id})}"><i class="material-icons-outlined" style="font-size:34px;color:#AEB73E;vertical-align: middle;">bookmark    </i></a>
                 </div>
             </div>
             <div class="mitad2"> 
@@ -47,10 +47,6 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <span th:text="${pelicula.score}"></span><span>%</span>
             </div>
         </div>
-
-
-
-
-
+        <footer th:replace="plantilla/template::footer"></footer>
     </body>
 </html>

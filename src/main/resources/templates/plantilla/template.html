@@ -78,16 +78,11 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <footer th:fragment="footer" style="background-color: #21081a;">
             <style>
                 .Len3{
-                    position: static;
                     margin-top: auto;
-                    padding-top: 1vh;
                     text-align: center;
                     color: white;
                 }
                 .Len3 a{
-                    color: white;
-                }
-                a{
                     color: white;
                 }
                 #lenh4{
@@ -115,11 +110,12 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
             </style>
             <!-- Copyright -->
             <div class="Len3">
-                <h4 th:text="#{plantilla.len}" id="lenh4"></h4> 
-                <h4 id="lenh4">
+                <h5 th:text="#{plantilla.len}" id="lenh4"></h5> 
+                <h5 id="lenh4">
                     <a th:href="@{(${#httpServletRequest.requestURI} + '?lang=es')}">ES</a>
+                    /
                     <a th:href="@{(${#httpServletRequest.requestURI} + '?lang=en')}">EN</a>
-                </h4>
+                </h5>
                 <br>
                 © 2023 Copyright:
                 <a class="texto-blanco" href="">Saturno</a>

@@ -17,6 +17,24 @@ a{
     margin-top: 8px;
     font-size: 14px;
 }
+#iniciar{
+    color: #fff;
+    background-color: #B5C03D;
+    border: none;
+    border-radius: 1vh;
+    padding: 10px 20px;
+    font-size: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    margin-top: 10%;
+    margin-left:30%;
+    margin-right: 25%;
+
+}
+#abajo2{
+    display: inline-block;
+}
 .mitad1{
     height: 100%;
     width: 50%;
