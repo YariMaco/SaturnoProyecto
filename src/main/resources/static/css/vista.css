@@ -70,7 +70,6 @@ nav ul li i {
     background-color: #3e8e41;
 }
 .container {
-  margin: -10px;
   padding: 40px;
   display: flex;
   justify-content: flex-start; /* changed from center */
@@ -87,7 +86,7 @@ ul {
   display: flex;
   flex-wrap: wrap;
   justify-content: flex-start; /* changed from center */
-  gap: 10px;
+  gap: 15px;
 }
 
 .image-gallery > li {
@@ -98,12 +97,12 @@ ul {
 
 .image-gallery::after {
   content: "";
-  flex-basis: 350px;
+  flex-basis: 375px;
 }
 
 .image-gallery li img {
-  width: 350px;
-  height: 200px;
+  width: 375px;
+  height: 215px;
   object-fit: cover;
   border-radius: 5px;
 }
