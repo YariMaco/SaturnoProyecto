@@ -41,10 +41,10 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                 <p th:text="${pelicula.actores}"></p>
                 <p>Género:</p>
                 <ul>
-                    <li th:each="genero : ${pelicula.generos}" th:text="${genero.nombre}"></li>
+                    <li><p th:each="genero : ${pelicula.generos}" th:text="${genero.nombre}"></p></li>
                 </ul>
                 <p>Calificación en Rotten Tomatoes:</p>
-                <p th:text="${pelicula.score}"></p>
+                <span th:text="${pelicula.score}"></span><span>%</span>
             </div>
         </div>
 
