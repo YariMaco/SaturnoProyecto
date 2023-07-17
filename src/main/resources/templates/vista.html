@@ -18,16 +18,15 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
     </head>
     <body>
         <header th:replace="plantilla/template::header"></header>    
-
         <div class="container">
             <ul class="image-gallery">
                 <li th:each="x : ${pelicula}">
                     <a th:href="@{/detalles/{idPelicula}(idPelicula=${x.id})}" style="color: rgba(0,0,0,0)">
                     <img class="card-text" th:src="@{${x.rutaimagen}}">
-                    <div class="overlay"><span> Ver</span></div>
+                    <div class="overlay"><span> Ver mas</span></div>
                 </li>       
             </ul>
         </div>
-
+        <footer th:replace="plantilla/template::footer"></footer>
     </body>
 </html>

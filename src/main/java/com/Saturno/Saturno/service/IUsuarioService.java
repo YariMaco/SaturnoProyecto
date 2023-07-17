@@ -4,7 +4,6 @@
  */
 package com.Saturno.Saturno.service;
 
-import com.Saturno.Saturno.entity.Pelicula;
 import com.Saturno.Saturno.entity.Usuario;
 import java.util.List;
 
@@ -18,6 +17,5 @@ public interface IUsuarioService {
     public Usuario getUsuarioById(long id);
     public void saveUsuario(Usuario usuario);   
     boolean verificarCorreoExistente(String email);
-    public void actualizarPeliculasFavoritas(Usuario usuario, List<Pelicula> peliculasFavoritas);
 
 }

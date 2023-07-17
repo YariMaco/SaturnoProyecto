@@ -17,32 +17,33 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
         <div class = container> 
             <div class = mitad1>
                 <img id="logo" src="/images/logohomw.png" alt=""/>
-                <p class="arriba">Entretenimiento en todo momento.</p>
-                <p class="abajo">¡Bienvenido otra vez!</p>
-                <p class="abajo2">¿Primera vez utilizando Saturno? <a href="/">Registrate</a></p>
+                <p class="arriba" th:text="#{index.entretenimiento}"></p>
+                <p class="abajo" th:text="#{login.bienve}"></p>
+                <p class="abajo2">¿Primera vez utilizando Saturno? <a href="/" th:text="#{index.registrate}">Registrate</a></p>
             </div>
             <div class = mitad2>
                 <div class="content_form">
                     <div class="Titulo">
                         <img id="logo" src="/images/meteoro.png" alt=""/>
-                        <h1>Inicio de Sesion</h1>
+                        <h1 th:text="#{login.login}"></h1>
                     </div>
                     <form th:action="@{/login}" method="post">
                         <div class="TextField">
-                            <label  for="nickname">Usuario:</label>
+                            <label  for="nickname" th:text="#{index.usuario}"></label>
                             <input type="text" id="username" name="username" aria-describedby="emailHelp" required>
                         </div>
                         <div class="TextField">
-                            <label for="contrasena">Contraseña:</label>
+                            <label for="contrasena" th:text="#{index.contrasena}"></label>
                             <input type="password" id="password" name="password" aria-describedby="emailHelp" required>
                         </div>
                         <p th:text="${error}" th:if="${error}" class="error-message" ></p>
-                        <div><button type="submit" id="iniciar" href="/iniSesion">Iniciar Sesión</button></div>
+                        <div><button type="submit" id="iniciar" href="/iniSesion" th:text="#{index.inisesi}"></button></div>
 
                     </form>
-                    <div class="Recuperacion"><p>¿Olvidaste tu contraseña? <a href="">Recuperar</a></p></div>
+                    <div class="Recuperacion"><p th:text="#{login.olvidas}"></p><a href="" th:text="#{login.recupe}"></a></div>
                 </div>
             </div>
         </div>
+        <footer th:replace="plantilla/template::footer"></footer>
     </body>
 </html>

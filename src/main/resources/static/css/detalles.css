@@ -4,6 +4,7 @@ body{
     color: #fff;
 
 }
+
 .card-text{
     width: 500px;
     height: auto;
@@ -19,6 +20,9 @@ body{
 .mitad2 ul{
      display: flex;
   flex-direction: row;
+}
+.mita{
+    margin-top: 30px;
 }
 h1{
     font-size: 250%;

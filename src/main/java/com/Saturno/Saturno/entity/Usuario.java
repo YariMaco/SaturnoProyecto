@@ -16,7 +16,6 @@ import java.util.List;
 import javax.persistence.JoinColumn;
 import javax.persistence.JoinTable;
 import javax.persistence.ManyToMany;
-import javax.persistence.OrderBy;
 
 /**
  *
@@ -42,7 +41,6 @@ public class Usuario implements Serializable {
             joinColumns = @JoinColumn(name = "usuario_id"),
             inverseJoinColumns = @JoinColumn(name = "pelicula_id")
     )
-    @OrderBy("id DESC") 
     private List<Pelicula> peliculasFavoritas;
     
     @ManyToMany
@@ -51,7 +49,6 @@ public class Usuario implements Serializable {
             joinColumns = @JoinColumn(name = "usuario_id"),
             inverseJoinColumns = @JoinColumn(name = "pelicula_id")
     )
-    @OrderBy("id DESC") 
     private List<Pelicula> historial;
 
     public long getId() {
@@ -118,13 +115,6 @@ public class Usuario implements Serializable {
         this.peliculasFavoritas = peliculasFavoritas;
     }
 
-    public void agregarPeliculaFavorita(Pelicula pelicula) {
-        if (peliculasFavoritas == null) {
-            peliculasFavoritas = new ArrayList<>();
-        }
-        peliculasFavoritas.add(pelicula);
-    }
-
     public List<Pelicula> getHistorial() {
         return historial;
     }
@@ -133,7 +123,8 @@ public class Usuario implements Serializable {
         this.historial = historial;
     }
 
-    
+
+
 
     public List<String> getRoleList() {
         if (this.roles.length() > 0) {

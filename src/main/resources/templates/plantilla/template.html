@@ -23,8 +23,8 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                         <li class="nav-item">
                             <a class="nav-link active text-white" data-bs-toggle="offcanvas" data-bs-target="#offcanvasWithBothOptions" aria-controls="offcanvasWithBothOptions" aria-current="page" href="#"><i class="material-icons" style="font-size:30px;color:white">menu</i></a>
                         </li >
-                        <li class="nav-item"><a class="nav-link text-white" href=" /vistaUsuario">Películas</a></li>
-                        
+                        <li class="nav-item"><a class="nav-link text-white" href=" /vistaUsuario" th:text="#{template.peliculas}"></a></li>
+
                     </ul> 
                 </nav>
                 <a href=" "> <img class="logo" src="images/logohomw.png" alt="Logo"/></a>
@@ -33,71 +33,92 @@ Click nbfs://nbhost/SystemFileSystem/Templates/Other/html.html to edit this temp
                     <a href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <i class="material-icons-outlined" style="font-size:34px;color:white">account_circle</i>
                     </a>
+                    <!-- ############################################################################################# -->
                     <div class="dropdown-content">
-                        <a th:href="@{/cuenta}" th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}">Mi Cuenta</a>
-                        <a th:href="@{/peliculas/favoritas}" th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}">Favoritos</a>
-                        <a href="/peliculas/historial" th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}">Historial</a>
-                        <a th:href="@{/peliculaN}" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">Agregar Película</a>
-                        <a th:href="@{/lista}" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}">Lista de Películas</a>
-                        <a th:href="@{/logout}">Logout</a>
-                    </div>          
+                        <a th:href="@{/cuenta}" th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}" th:text="#{template.micuenta}"></a>
+                        <a th:href="@{/peliculas/favoritas}" th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}" th:text="#{template.favoritos}"></a>
+                        <a href="/peliculas/historial" th:if="${#authorization.expression('hasRole(''ROLE_USER'')')}" th:text="#{template.historial}"></a>
+                        <a th:href="@{/peliculaN}" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" th:text="#{template.agregarpeli}"></a>
+                        <a th:href="@{/lista}" th:if="${#authorization.expression('hasRole(''ROLE_ADMIN'')')}" th:text="#{template.listapeli}"></a>
+                        <a th:href="@{/logout}" th:text="#{template.salir}"></a>
+                    </div>
+                    <!-- ############################################################################################# -->
+
                 </div>
             </div>
             <!-- Offcanvas -->
             <div class="offcanvas offcanvas-start text-bg-dark" tabindex="-1" id="offcanvasWithBothOptions" aria-labelledby="offcanvasWithBothOptionsLabel">
                 <div class="offcanvas-header text-center" style="background-color: #161212;">
-                    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel" style="color: #B5C03D;font-size: 25px;">Géneros</h5> <!-- Cambiar el color del título -->
+                    <h5 class="offcanvas-title" id="offcanvasWithBothOptionsLabel" style="color: #B5C03D;font-size: 25px;" th:text="#{template.generos}"></h5> <!-- Cambiar el color del título -->
                     <button type="button" class="btn-close btn-close-white" data-bs-dismiss="offcanvas" aria-label="Close"></button>
                 </div>
+                <!-- ############################################################################################# -->
                 <div class="offcanvas-body" style="height: 80vh; overflow: auto; background-color: #161212; color: #fff; font-size: 16px;"> <!-- Cambiar el color de fondo, color del texto y tamaño de fuente del cuerpo del offcanvas -->
                     <ul style="list-style-type: none; padding: 0;"> <!-- Quitar viñetas de la lista y eliminar el espacio de relleno -->
-                        <li style="margin-bottom: 10px;"><a th:href="@{/verlista/1}" style="text-decoration: none; color: #fff; font-size: 20px;">Acción</a></li> <!-- Cambiar el color, tamaño de fuente y margen inferior de los enlaces -->
+                        <li style="margin-bottom: 10px;"><a th:href="@{/verlista/1}" style="text-decoration: none; color: #fff; font-size: 20px;" th:text="#{template.acc}"></a></li> <!-- Cambiar el color, tamaño de fuente y margen inferior de los enlaces -->
                         <hr style="border-color: #707070;"> <!-- Cambiar el color de la línea -->
-                        <li style="margin-bottom: 10px;"><a th:href="@{/verlista/3}" style="text-decoration: none; color: #fff; font-size: 20px;">Animado</a></li>
+                        <li style="margin-bottom: 10px;"><a th:href="@{/verlista/3}" style="text-decoration: none; color: #fff; font-size: 20px;" th:text="#{template.ani}"></a></li>
                         <hr style="border-color: #707070;">
-                        <li style="margin-bottom: 10px;"><a th:href="@{/verlista/{id}(id=${5})}" style="text-decoration: none; color: #fff; font-size: 20px;">Comedia</a></li>
+                        <li style="margin-bottom: 10px;"><a th:href="@{/verlista/{id}(id=${5})}" style="text-decoration: none; color: #fff; font-size: 20px;" th:text="#{template.come}"></a></li>
                         <hr style="border-color: #707070;">
-                        <li style="margin-bottom: 10px;"><a th:href="@{/verlista/{id}(id=${4})}"style="text-decoration: none; color: #fff; font-size: 20px;">Ciencia ficción</a></li>
+                        <li style="margin-bottom: 10px;"><a th:href="@{/verlista/{id}(id=${4})}"style="text-decoration: none; color: #fff; font-size: 20px;" th:text="#{template.cienF}"></a></li>
                         <hr style="border-color: #707070;">
-                        <li style="margin-bottom: 10px;"><a th:href="@{verlista/11}"style="text-decoration: none; color: #fff; font-size: 20px;">Terror</a></li>
+                        <li style="margin-bottom: 10px;"><a th:href="@{verlista/11}"style="text-decoration: none; color: #fff; font-size: 20px;"th:text="#{template.ter}"></a></li>
                         <hr style="border-color: #707070;">
-                        <li style="margin-bottom: 10px;"><a th:href="@{verlista/7}"style="text-decoration: none; color: #fff; font-size: 20px;">Drama</a></li>
+                        <li style="margin-bottom: 10px;"><a th:href="@{verlista/7}"style="text-decoration: none; color: #fff; font-size: 20px;" th:text="#{template.dra}"></a></li>
                     </ul>
                 </div>
+                <!-- ############################################################################################# -->
+
             </div>
 
         </header>
         <!-- ------------------------------------------------------------------------------------------ -->
         <!-- Footer -->
-        <footer th:fragment="footer" class="text-center text-white fixed-bottom" style="background-color: #21081a;">
+        <footer th:fragment="footer" style="background-color: #21081a;">
             <style>
-                .Len{
-                    margin-top: -3vh;
-                    padding-top: 1vh;
-                }
-                #len{
-                    display: inline-block;
-                }
-                .text-white{
+                .Len3{
+                    margin-top: auto;
                     text-align: center;
-                }
-                .text-white a{
                     color: white;
+                }
+                .Len3 a{
+                    color: white;
+                }
+                #lenh4{
+                    display: inline-block;
+                    color:white;
+                }
+                html {
+                    height: 100%;
+                }
+
+                body {
+                    min-height: 100%;
+                    display: flex;
+                    flex-direction: column;
+                }
+
+                main {
+                    flex: 1;
+                }
+
+                footer {
+                    margin-top: auto;
                 }
 
             </style>
             <!-- Copyright -->
-            <div class="Len">
-                <h4 th:text="#{plantilla.len}" id="len"></h4> 
-                <h4 id="len">
-                    <a th:with="urlBuilder=${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest()}"
-                       th:href="${urlBuilder.replaceQueryParam('lang','es').toUriString()}" class="text-dark">ES</a>
-                    <a th:with="urlBuilder=${T(org.springframework.web.servlet.support.ServletUriComponentsBuilder).fromCurrentRequest()}"
-                       th:href="${urlBuilder.replaceQueryParam('lang','en').toUriString()}" class="text-dark">EN</a> 
-                </h4>
+            <div class="Len3">
+                <h5 th:text="#{plantilla.len}" id="lenh4"></h5> 
+                <h5 id="lenh4">
+                    <a th:href="@{(${#httpServletRequest.requestURI} + '?lang=es')}">ES</a>
+                    /
+                    <a th:href="@{(${#httpServletRequest.requestURI} + '?lang=en')}">EN</a>
+                </h5>
                 <br>
                 © 2023 Copyright:
-                <a class="text-white" href="">Saturno</a>
+                <a class="texto-blanco" href="">Saturno</a>
             </div>
             <!-- Copyright -->
         </footer>
